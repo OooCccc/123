@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重练习</title>
+</head>
+<body>
+  <script>
+      var a=[1,2,4,3,5,6,1,11,11,2,3,4,5,4,5];
+      //去重使用splice()方法
+      //遍历数组
+      //取出第一个数
+      //用第一个数跟剩余的数比较，如果相同就把们都删除
+      for(var i=0;i<a.length;i++){
+
+            for(var j=i+1;j<a.length;j++){
+                   if(a[i]==a[j]){
+                        a.splice(j,1);
+                        //如果出现连续的数比如[1，1]，就需要j--，减回去在比较一次
+                        j--;
+                   } 
+            }
+      }
+      alert(a);
+  </script>  
+</body>
+</html>

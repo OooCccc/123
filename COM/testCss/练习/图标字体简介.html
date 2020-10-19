@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图标字体简介</title>
+    <link rel="stylesheet" href="./图标字体库/css/all.css">
+    <style>
+        /* .fa-bell{
+            font-size: 122px;
+        } */
+        ul{
+            list-style: none;
+        }
+       /* 通过伪元素的方式 */
+        /* li::before{
+            content: "\f0f3";
+            font-family: 'Font Awesome 5 free';
+            font-weight: 900px;
+        } */
+        span{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 通过类名的方式 -->
+    <i class="fas fa-bell"></i>
+    <ul>
+        <li>床前明月光</li>
+        <li>疑是地上霜</li>
+        <li>举头望明月</li>
+        <li>低头思故乡</li>
+    </ul>
+    <!-- 通过实体的方式   &#x****-->
+    <span class="fa fas fab far">&#xf0f4;</span>
+</body>
+</html>

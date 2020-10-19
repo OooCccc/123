@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            // 判断该数字是否为质数
+            // var num=prompt("请输入一个大于0的整数：");
+            // var reg=/[A-z]/;
+            // var flag=true;
+            // if(num<=1 || reg.test(num)){
+            //     alert("该数字不合法！");
+            // }else{
+            //     // 判断该数字是否为质数
+            //     for(var i=2;i<num;i++){
+            //         if(num%i==0){
+            //             flag=false;
+            //         }
+            //     }
+            //     if(flag){
+            //         alert("是质数");
+            //     }
+            //     else{
+            //         alert("不是质数！")
+            //     }
+            // }
+
+            // for(var i=1;i<10;i++){
+            //     for(var j=1;j<i+1;j++){
+            //         document.write(j+"*"+i+"="+i*j+" ");
+            //     }
+            //         document.write('<br>')
+            // }
+            // for(var i=1;i<10;i++){
+            //     for(var j=9;j>i-1;j--){
+            //         document.write(j+"*"+i+"="+i*j+" ");
+            //     }
+            //         document.write('<br>')
+            // }
+            // for(var i=1;i<10;i++){
+            //     for(var j=1;j<10-i;j++){
+            //         document.write(j+"*"+i+"="+i*j+" ");
+            //     }
+            //         document.write('<br>')
+            // }
+            // 打印1-100之间的质数
+            // for (var i = 2; i <=100; i++) {
+            //     var flag = true;
+            //     // document.write(i+"<br>");
+            //     for (var j = 2; j < i; j++) {
+            //             // document.write(">>>>"+j+"<br>");
+            //         if (i % j == 0) {
+            //             flag = false;
+            //         }
+            //     }
+            //         if (flag) {
+            //             document.write(i+"<br>");
+            //         }
+            // }
+
+                for(var i=2;i<=100;i++){
+                    var flag=true;
+                        for(var j=2;j<Math.sqrt(i);j++){
+                            if(i%j==0){
+                                flag=false;
+                                break;
+                            }
+                        }
+                        if(flag){
+                            document.write(i+"<br>");
+                        }
+                }
+                
+        };
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if else 练习</title>
+</head>
+<body>
+    <script>
+        var num=[];
+        num[0]=prompt("请输入第一个num:");
+        num[1]=prompt("请输入第二个num:");
+        num[2]=prompt("请输入第三个num:");
+
+
+        var a=num.sort();
+       //第一种遍历方式
+       for(var i=0;i<a.length;i++){
+           document.write(a[i]+"<br/>");
+       }
+       document.write("<hr/>");
+       //第二种遍历方式
+       for(var o  in a){
+        document.write(a[o]+"<br/>");
+       }
+       document.write("<hr/>");
+       //第三种遍历方式
+       a.forEach(function(values,index,array){
+        document.write(array[index]+"<br/>");
+     
+       });
+
+    </script>
+</body>
+</html>

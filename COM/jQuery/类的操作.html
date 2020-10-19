@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类的操作</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: indigo;
+        }
+        .bc{
+            background-color: lightcoral;
+        }
+    </style>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".box").click(function(){
+                // $(this).addClass("bc");
+                // $(this).removeClass("bc");
+                $(this).toggleClass("bc");
+            });
+          
+        });
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

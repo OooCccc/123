@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shopping</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <style>
+      body {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      input {
+        width: 15px;
+      }
+      table {
+        width: 500px;
+        height: 300px;
+        text-align: center;
+      }
+      span {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="table">
+      <thead>
+        <th>商品信息</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>价格</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>苹果</td>
+          <td>￥{{apple.price}}</td>
+          <td>
+            <span v-on:click="dec">-</span>
+            <input type="text" v-model="apple.geshu" /><span v-on:click="add"
+              >+</span
+            >
+          </td>
+          <td>{{apple.price * apple.geshu}}</td>
+        </tr>
+        <tr>
+          <td>香蕉</td>
+          <td>￥{{apple.price}}</td>
+          <td>
+            <span v-on:click=" banana.geshu=banana.geshu-1?0:banana.geshu-1"
+              >-</span
+            >
+            <input type="text" v-model="banana.geshu" /><span v-on:click="add1"
+              >+</span
+            >
+          </td>
+          <td>{{banana.price * banana.geshu}}</td>
+        </tr>
+        <tr>
+          <td>
+            总价：￥{{ banana.price * banana.geshu + apple.price * apple.geshu}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      const app = new Vue({
+        el: "#table",
+        data: {
+          apple: {
+            price: 5.84,
+            geshu: 0,
+          },
+          banana: {
+            price: 6.84,
+            geshu: 0,
+          },
+        },
+        methods: {
+          add: function (e) {
+            var apGshu = this.apple.geshu++;
+          },
+          dec: function (e) {
+            this.apple.geshu =
+              this.apple.geshu - 1 < 0 ? 0 : this.apple.geshu - 1;
+          },
+          add1: function (e) {
+            var baGshu = this.banana.geshu++;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

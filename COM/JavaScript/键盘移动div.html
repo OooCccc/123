@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘移动div</title>
+    <style>
+        /* *{
+            margin: 0px;
+            padding: 0px;
+        } */
+        #box{
+            width: 30px;
+            height: 30px;
+            background-color: brown;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box=document.getElementById("box");
+            //定义一个计时器
+            var time=null;
+            //速度
+            var speed=10;
+            //给上 下 左 右 绑定事件
+            document.onkeydown=function(e){
+                clearInterval(time);
+                //也可以用switch
+                if(e.ctrlKey){
+                    speed=50;
+                }
+                e=e||window.event;
+                //上 38 
+                if(e.keyCode===38){
+                     time=setInterval(function(){
+                        box.style.top=box.offsetTop-speed+"px";
+                    },50);
+                    
+                }
+                // 下 40 
+                if(e.keyCode===40){ 
+                    time=setInterval(function(){
+                    box.style.top=box.offsetTop+speed+"px";
+                    },50);
+                }
+                // 左37 
+                if(e.keyCode===37){
+                    time=setInterval(function(){
+                    box.style.left=box.offsetLeft-speed+"px";
+                    },50);
+                }
+                //  右39
+                if(e.keyCode===39){
+                    time=setInterval(function(){
+                    box.style.left=box.offsetLeft+speed+"px";
+                    },50);
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

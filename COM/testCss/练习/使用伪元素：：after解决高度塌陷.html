@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用伪元素：：after解决高度塌陷</title>
+    <style>
+        .box-parent {
+            border: 5px solid black;
+    
+        }
+        .box-son1 {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            float: left;
+
+        }
+        .box-son2 {
+            width: 200px;
+            height: 200px;
+            background: chartreuse;
+            /* clear: both; */
+            float: left;
+        }
+        .box-parent::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: darkcyan;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-parent">
+        <div class="box-son1"></div>
+        <div class="box-son2"></div>
+    </div>
+    <div class="box1"></div>
+</body>
+
+</html>

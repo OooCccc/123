@@ -1,0 +1,96 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-image: linear-gradient(-45deg, #0914ee, #f12222);
+}
+.container {
+  height: 290px;
+  padding-top: 100px;
+}
+.container .navbar .nav {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+}
+.container .navbar .nav:hover .menu-list li {
+  opacity: 1;
+}
+.container .navbar .nav:hover .menu-list li:nth-child(9) {
+  transform: rotate(340deg) translateY(-50px);
+}
+.container .navbar .nav:hover .menu-list li:nth-child(8) {
+  transform: rotate(305deg) translateY(-55px);
+}
+.container .navbar .nav:hover .menu-list li:nth-child(7) {
+  transform: rotate(275deg) translateY(-55px);
+}
+.container .navbar .nav:hover .menu-list li:nth-child(6) {
+  transform: rotate(242deg) translateY(-44px);
+}
+.container .navbar .nav:hover .menu-list li:nth-child(5) {
+  transform: rotate(200deg) translateY(-28px);
+}
+.container .navbar .nav:hover .menu-list li:nth-child(4) {
+  transform: rotate(159deg) translateY(-16px);
+}
+.container .navbar .nav:hover .menu-list li:nth-child(3) {
+  transform: rotate(114deg) translateY(-12px);
+}
+.container .navbar .nav:hover .menu-list li:nth-child(2) {
+  transform: rotate(66deg) translateY(-20px);
+}
+.container .navbar .nav:hover .menu-list li:nth-child(1) {
+  transform: rotate(22deg) translateY(-35px);
+}
+.container .navbar .nav .menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  font-size: 25px;
+  color: #99B977;
+  text-align: center;
+  line-height: 150px;
+  background-color: #362121;
+  border-radius: 50%;
+}
+.container .navbar .nav .menu-list {
+  position: absolute;
+  top: 50px;
+  left: 69px;
+  right: 0px;
+  width: 45px;
+  height: 45px;
+}
+.container .navbar .nav .menu-list li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 45px;
+  height: 45px;
+  top: 0;
+  left: 0;
+  background-color: black;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.6s;
+  transform-origin: 75px 75px;
+  opacity: 0;
+}
+.container .navbar .nav .menu-list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
+  color: white ;
+  text-decoration: none;
+  line-height: 45px;
+}

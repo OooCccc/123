@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类</title>
+</head>
+<body>
+    <script>
+        class Star{
+            constructor (name ,age){
+                this.name=name;
+                this.age=age;
+                console.log(this.name+  ","+this.age);
+            }
+            say(sing){
+                console.log(this.name+","+this.age+"唱"+sing);
+                
+            }
+        }
+        var dj=new Star("dj",19 );
+        dj.say("sdfas");
+        var dj12=new Star("dj123",21);
+        dj12.say(111);
+    </script>
+</body>
+</html>

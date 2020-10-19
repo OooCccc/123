@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选操作</title>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="#">
+        <p>你的爱好是： <input type="checkbox" name="" id="">全选
+        </p>
+        <input type="checkbox" name="" id="" value="足球">足球
+        <input type="checkbox" name="" id="" value="篮球">篮球
+        <input type="checkbox" name="" id="" value="游泳">游泳
+        <input type="checkbox" name="" id="" value="搏击">搏击
+
+        <div>
+            <button type="button">全选</button>
+            <button type="button">全不选</button>
+            <button type="button">反选</button>
+            <button type="submit">提交</button>
+        </div>
+    </form>
+    <script>
+        $(function () {
+
+            $(this).delegate()
+            $('input:eq(0)').click(function () {
+                $(this).prop("checked");
+                $("form").children('input').prop("checked", $(this).prop("checked"));
+            })
+            //全选
+            $("button:first").click(function () {
+                $('input').prop('checked', true)
+                $('input:eq(0)').prop('checked', true)
+            })
+            //全不选
+            $("button").eq(1).click(function () {
+                $('input').prop('checked', false)
+                $('input:eq(0)').prop('checked', false)
+            })
+            //反选
+            $("button").eq(2).click(function () {
+                $('form').children('input').each(function () {
+                    //  console.log($(this))
+                    //  $(this).prop("checked") = !$(this).prop("checked");   ///???????居然不对
+                    this.checked = !this.checked;
+                    // console.log($(this).prop("checked"))
+                })
+                   var flag=$(' form >input').not(":checked").length;
+                //    console.log(flag);
+                     $('input:eq(0)').prop('checked',flag===0);
+                    //  $('input:eq(0)').prop('checked', this.checked);
+            })
+            //提交
+         $("button").eq(3).click(function(){
+                var s=$(":checked:not(1)").length;
+                console.log(s)
+                $(":checked:not(0)").each(function(){
+                    console.log(this.value);
+                })
+         })
+
+         //给每一个input绑定监听事件
+         $('form >input').click(function(){
+            var that=$('form >input');
+            var flag=that.not(":checked").length;
+                //    console.log(flag);
+                     $('input:eq(0)').prop('checked',flag===0);
+         })
+        })
+
+
+    </script>
+
+</body>
+
+</html>

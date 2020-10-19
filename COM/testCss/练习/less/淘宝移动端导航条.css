@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.bar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.bar .item {
+  flex: auto;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  width: 61px;
+  height: 67px;
+  text-align: center;
+}
+.bar .item img {
+  width: 61px;
+  height: 48px;
+}
+.bar .item span {
+  display: block;
+  font-size: 11px;
+  color: #666666;
+}

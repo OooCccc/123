@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分层悬停效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            /* 视口高度100vh */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+          position: absolute;
+          top: 200px;
+            width: 300px;
+            height: 500px;
+            transform: rotateZ(-30deg) skewX(30deg); 
+            justify-content: center;
+        }
+        img{
+            position: absolute;
+            width: 250px;
+            transition: .6s;
+        }
+        .box:hover img:nth-child(5){
+            transform: translateX(200px) translateY(-180px);
+            opacity: 1;
+        }
+        .box:hover img:nth-child(4) {
+            transform: translateX(150px) translateY(-135px) ;
+            opacity: .7;
+        }
+        .box:hover img:nth-child(3){
+            transform: translateX(100px) translateY(-90px);
+            opacity: .5;
+        }
+        .box:hover img:nth-child(2) {
+            transform: translateX(50px)translateY(-45px);
+            opacity: .3;
+        }
+        .box:hover img:nth-child(1){
+            opacity: .1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./img/qq音乐播放器.jpg" >
+        <img src="./img/qq音乐播放器.jpg" >
+        <img src="./img/qq音乐播放器.jpg" >
+        <img src="./img/qq音乐播放器.jpg" >
+        <img src="./img/qq音乐播放器.jpg" >
+    </div>
+</body>
+</html>

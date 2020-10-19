@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function clickButton() {
+        alert("我是你爸爸！");
+    }
+    function addDom() {
+        var par = document.createElement("p");
+        var txt = document.createTextNode("......小儿子.......");
+        par.appendChild(txt);
+        var par1 = document.createElement("p");
+        var txt1 = document.createTextNode("......大儿子.......");
+        par1.appendChild(txt1);
+        var dj1 = document.getElementById("dj1");
+        dj1.appendChild(par);
+        var button1 = document.getElementById("button1");
+        dj1.insertBefore(par1, button1);
+    }
+    function deleDom() {
+            var dj1=document.getElementById("dj1");
+            var button1 =document.getElementById("button1");
+            dj1.removeChild(button1);
+    }
+    function modiftDom(){
+        var txt =document.getElementById("txt").innerHTML="用户名：";
+        var userName =document.getElementById("userName").value="dj";
+    }
+</script>
+
+<body>
+    <div id="dj1">
+        <!-- javascript处理dom事件 -->
+        <span id="txt">:</span><input type="text" id="userName">
+        <input type="button" id="button1" name="button1" onclick="clickButton()" value="点击我试试看" /><br />
+    </div>
+    <!-- javascript操作dom事件 -->
+    <!-- 增加事件 -->
+    <input type="button" value="增加dom" onclick="addDom()" />
+    <!-- 删除dom事件 -->
+    <input type="button" value="删除dom" onclick="deleDom()"/>
+    <!-- 修改dom事件 -->
+    <input type="button" value="修改dom" onclick="modiftDom()"/>
+</body>
+
+</html>

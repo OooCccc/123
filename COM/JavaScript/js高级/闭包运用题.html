@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包运用题</title>
+</head>
+<body>
+   <label> 公里数:</label> <input id="km" type="text">
+   <label> 价格:</label> <input id="price" type="text" value="13">
+   <label> 是否堵车:</label> <select id="flag">
+       <option value="1">是</option>
+       <option value="0" selected>否</option>
+   </select>
+   <button id="btn">计算</button>
+   <script>
+       var km=document.getElementById("km");
+       var meney=document.getElementById("price");
+       var flag=document.getElementById("flag");
+       var btn=document.getElementById("btn").onclick=function(){
+           sum(km.value, parseInt(flag.value));
+       };
+    //计算价格
+    //km:公里数
+    //falg:是否堵车
+    function sum(km,falg){
+        var price=13;
+        if(km>3){
+            if(falg==1){
+                for ( var i = 0 ; i < (km-3) ; i++){
+                    price+=5;
+                }
+                price+=10;
+                meney.value=price;
+            }else{
+                for ( var i = 0 ; i < (km-3) ; i++){
+                    price+=5;
+                }
+                meney.value=price;
+            }
+        }
+        else{
+            // if(falg==1){
+            //     meney.value=price+10;
+            // }else{
+            //     meney.value=price;
+            // }
+            return falg==1?meney.value=price+10:meney.value=price;
+        }
+    }
+   </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET页面</title>
+</head>
+<style>
+    div {
+        height: 100px;
+        width: 200px;
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <div id="box"></div>
+</body>
+    <script>
+            var box1 = document.getElementById("box");
+            box1.onmouseover=function(){
+            // 1.创建对象
+            const xhr = new XMLHttpRequest();
+            // 2.初始化，设置请求方法和url
+            // xhr.open("GET", "http://127.0.0.1:8000/server");
+            xhr.open("GET", "http://127.0.0.1:8000/server");//设置参数
+            // 3.发送请求
+            // xhr.send();
+            xhr.send();//发送参数
+            // xhr.send("a:100&b:200&c:300");//发送参数
+            // xhr.send("23424jkndjfgn");//发送参数
+            // 4.事件绑定，处理返回的结果
+            // on：当....的时候
+            // readtstate:是对象的属性 表示状态：0 1 2 3 4
+            // change 发生改变
+            xhr.onreadystatechange = function () {
+                //判断 （服务端返回了所有结果）
+                if (xhr.readyState === 4) {
+                    //判断相应状态码 200 404 403 401 500
+                    // 2xx表示成功
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        //处理结果  行  头  空行 体
+                        // 1.相应行
+                        // console.log(xhr.status);//状态码
+                        // console.log(xhr.statusText);//状态字符串
+                        // console.log(xhr.getAllResponseHeaders());//响应头的所有内容
+                        // console.log(xhr.response);//响应体]
+                        box1.innerHTML=xhr.response;
+                    } else {
+                        console.log("请求失败!");
+                    }
+                }
+            }
+        };
+    </script>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>携程移动端</title>
+    <!-- <link rel="stylesheet" href="./css/idnex.css"> -->
+    <script src="./js/fastclick.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        html {
+            font-size: 14px;
+        }
+
+        body {
+            width: 100%;
+            height: auto;
+            max-width: 540px;
+            min-width: 320px;
+            margin: 0 auto;
+            overflow: auto;
+        }
+
+        .seach-bar {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 44px;
+            background-image: linear-gradient(#788F9E, #D8EEFC);
+        }
+
+        .input {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding-left: 10px;
+            line-height: 39px;
+        }
+
+        .input span {
+            position: absolute;
+            display: block;
+            width: 35px;
+            height: 28px;
+            /* background-color: burlywood; */
+            background-image: url(./img/home-common-sprite2x@v7.15.png);
+            background-repeat: no-repeat;
+            background-position: 15px 13px;
+            background-size: 21px auto;
+
+        }
+
+        input {
+            width: 100%;
+            height: 28px;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .user {
+            font-size: 12px;
+            color: white;
+            width: 51px;
+            height: 44px;
+            text-align: center;
+        }
+
+        .user-icon {
+            width: 22px;
+            height: 22px;
+            margin: 0 auto;
+            background-image: url(./img/home-common-sprite2x@v7.15.png);
+            background-repeat: no-repeat;
+            background-position: 0 -35px;
+            background-size: 21px auto;
+        }
+
+        .fcous {
+            position: relative;
+            width: 100%;
+            z-index:999;
+        }
+
+        .fcous img {
+            width: 100%;
+        }
+        .fcous ul{
+            position: absolute;
+            display: flex;
+            width: 95%;
+            height: 64px;
+            background-color: white;
+            border-radius: 10px;
+            top: 70%;
+            z-index: 99;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            box-shadow: 0 2px  rgba(206, 201, 201, 0.1);
+        }
+        .fcous ul li{
+            font-size: 12px;
+            margin: 5px 0;
+            text-align: center;
+            display: block;
+            width: 20%;
+        }
+        .fcous ul li span:first-child{
+            margin: 0 auto;
+                display: block;
+                width: 40px;
+                height: 40px;
+                background-image: url(./img/home-fivemain-sprite2x@v7.15.png);
+                background-position: 0 0;
+                background-size: 40px auto;
+        }
+        .item{
+            width: 95%;
+            margin: 20px auto;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .item li{
+            display: block;
+            height: 64px;
+            line-height: 64px;
+            text-align: center;
+        }
+        .box1 li:nth-child(1){
+            text-align: left;
+            width: 30%;
+            padding-left: 10px;
+            border-right: 1px solid white;
+        }
+        .box1 li:nth-child(2){
+            width: 20%;
+            border-right: 1px solid white;
+        }
+        .box1 li:nth-child(3){
+            width: 50%;
+        }
+        .box2 ul{
+            background-image: url(./img/grid-nav-items-flight@v7.15.png);
+            background-repeat: no-repeat;
+        }
+        .box1 ul{
+            display: flex;
+            background-image: url(./img/grid-nav-items-hotel@v7.15.png);
+            background-repeat: no-repeat;
+        }
+        .box3 ul{
+            background-image: url(./img/grid-nav-items-travel@v7.15.png);
+            background-repeat: no-repeat;
+        }
+        .box2 ul ,.box3 ul{
+            display: flex;
+        }
+        .box2 li:nth-child(1),
+        .box3 li:nth-child(1){
+            width: 30%;
+            text-align: left;
+            padding-left: 10px;
+            border-right: 1px solid white;
+        }
+        .box2 li:nth-child(2),
+        .box3 li:nth-child(2){
+            width: 20%;
+            border-right: 1px solid white;
+        }
+        .box2 li:nth-child(3),
+        .box3 li:nth-child(3){
+            width: 25%;
+            border-right: 1px solid white;
+        }
+        .box2 li:nth-child(4),
+        .box3 li:nth-child(4){
+            width: 25%;
+        }
+        .box1{
+            background-image: linear-gradient(to right ,#FA5E55,#FFCF51);
+        }
+        .box2{
+            border-top: 1px solid white;
+
+            background-image: linear-gradient(to right ,#4B91ED,#52BAED);
+        }
+        .box3{
+            border-top: 1px solid white;
+            margin-top: -1px;
+            background-image: linear-gradient(to right ,#3AC4A2,#69D45B);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="seach-bar">
+        <div class="input">
+            <span></span>
+            <input type="text" placeholder="           搜索:目的地/酒店/景点/航班号">
+        </div>
+        <div class="user">
+            <div class="user-icon"></div>
+            <span>我 的</span>
+        </div>
+    </div>
+    <div class="fcous">
+        <img src="./img/baodi2@v7.15.jpg" alt="">
+        <ul>
+            <li><span></span>
+                <span class="text">攻略·景点</span></li>
+            <li><span></span>
+                <span class="text">攻略·景点</span></li>
+            <li><span></span>
+                <span class="text">攻略·景点</span></li>
+            <li><span></span>
+                <span class="text">攻略·景点</span></li>
+            <li><span></span>
+                <span class="text">攻略·景点</span></li>
+        </ul>
+    </div>
+    <div class="item">
+        <div class="box1">
+            <ul>
+                <li><span>酒店</span></li>
+                <li><span>民宿·客栈</span></li>
+                <li><span>特价·爆款</span></li>
+            </ul>
+        </div>
+        <div class="box2">
+            <ul>
+                <li><span>酒店</span></li>
+                <li><span>酒店</span></li>
+                <li><span>特价·爆款</span></li>
+                <li><span>特价·爆款</span></li>
+            </ul>
+        </div>
+        <div class="box3">
+            <ul>
+                <li><span>酒店</span></li>
+                <li><span>酒店</span></li>
+                <li><span>特价·爆款</span></li>
+                <li><span>特价·爆款</span></li>
+            </ul>
+            
+        </div>
+    </div>
+</body>
+
+</html>

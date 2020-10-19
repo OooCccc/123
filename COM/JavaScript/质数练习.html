@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>质数练习</title>
+</head>
+
+<body>
+    <script>/*
+输入一个数判断他是否是质数
+ 
+*/
+        //输入一个数
+        while (true) {
+            var num = parseInt(prompt("请输入数字："));
+            // document.write(typeof num);
+            var flog=true;//假设所有数字都是质数
+            if (0 < num < 9999) {
+                for (var i = 2; i < num; i++) {
+                    if (num % i == 0) {
+                      flog = false;
+                    }
+                }
+                if (flog) {
+                    alert("是质数");
+                    break;
+                } else {
+                    alert("不是质数");
+                    break;
+                }
+            }
+            else {
+                break;
+            }
+        }
+        // var flog=true;//假设所有数字都是质数
+        // var num =parseInt( prompt("请输入数字："));
+        //判断是否是质数
+
+    </script>
+</body>
+
+</html>

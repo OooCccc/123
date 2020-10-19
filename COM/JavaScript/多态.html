@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多态</title>
+</head>
+
+<body>
+    <script>
+        function Animal() {
+            this.say = function () {
+                alert("我是一只动物");
+            }
+
+        }
+        function Dog() {
+            this.say = function () {
+                alert("我是一只狗子");
+            }
+        }
+        Dog.prototype = new Animal();
+
+        function Cat() {
+            this.say = function () {
+                alert("我是一只猫咪")
+            }
+        }
+        Cat.prototype = new Animal();
+
+        function say(animal) {
+            if (animal instanceof Animal) {
+                animal.say();
+            }
+        }
+        var dog = new Dog();
+        var cat = new Cat();
+        say(dog);
+        say(cat);
+        
+    </script>
+</body>
+
+</html>

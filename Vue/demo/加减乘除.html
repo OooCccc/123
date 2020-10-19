@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>+ * - /</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="number" v-model="one" />
+      <select v-model="optreation">
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">*</option>
+        <option value="4">/</option>
+      </select>
+      <input v-model="tow" />
+      <button v-on:click="change">=</button>
+      <input type="number" v-model="sum" />
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          one: "",
+          optreation: "",
+          tow: "",
+          sum: "",
+        },
+        methods: {
+          change(e) {
+            switch (parseInt(this.optreation)) {
+              case 1:
+                this.sum = parseInt(this.one) + parseInt(this.tow);
+                break;
+              case 2:
+                this.sum = parseInt(this.one) - parseInt(this.tow);
+                break;
+              case 3:
+                this.sum = parseInt(this.one) * parseInt(this.tow);
+                break;
+              case 4:
+                this.sum = parseInt(this.one) / parseInt(this.tow);
+                break;
+              default:
+                break;
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器简介</title>
+    <style>
+        span {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //设计一个计数器
+            var count = 1;
+            var time = null;
+            var timeStart = document.getElementById("timeStart");
+            var timeEnd = document.getElementById("timeEnd");
+            var Time = document.getElementById("Time");
+
+            //开始计时
+            timeStart.onclick = function () {
+                clearInterval(time);
+                time = setInterval(function () {
+                Time.innerHTML = count++;
+                }, 1000);
+                //结束计时
+            };
+            timeEnd.onclick = function () {
+                clearInterval(time);
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <button id="timeStart">开始计时</button>
+    <button id="timeEnd">结束计时</button>
+    <br />
+    <span id="Time"></span>
+</body>
+
+</html>

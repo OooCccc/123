@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东轮播图,简化版</title>
+    <style>
+*{
+    margin: 0px;
+    padding: 0px;
+}
+img{
+    width: 590px;
+    height: 470px;
+    position: absolute;
+}
+li{
+    list-style: none;
+}
+.box{
+margin-left: 400px;
+}
+.point{
+    width: 120px;
+    height: 30px;
+    position: absolute;
+    top: 440px;
+    left: 400px;
+}
+.point a{
+    /* display:block; */ 
+    float: left; /* 脱离文档流，变成块级元素 不用在设置 display:block */   
+    width: 8px;
+    height:8px;
+    border-radius: 50%;
+    border: 1px #5F6563 solid;
+    background-color: #FEFEFE ;
+    /* 设置背景透明度 */
+    opacity: .6; 
+    margin-left: 5px;
+}
+
+.point.dj,
+.point a:hover{
+    border: 1px #5F6563 solid;
+    background-color: black ;
+    /* 设置背景透明度 */
+    opacity: .6; 
+
+}
+
+
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li><a href="#"><img src="https://img12.360buyimg.com/babel/s1180x940_jfs/t1/126976/23/5048/92800/5ee87a86E151b4a27/10ceeee82fa4c29b.jpg.webp"></a></li>
+        <li><a href="#"><img src="https://img12.360buyimg.com/pop/s1180x940_jfs/t1/107518/33/19456/82829/5ecb8f4aE209e23dd/8c09841b57465061.jpg.webp"></a></li>
+        <li><a href="#"><img src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/128751/4/1703/94241/5ebf5f53E37d7fc64/5141fb791438213d.jpg.webp"></a></li>
+        <li><a href="#"><img src="https://imgcps.jd.com/ling/4422876/56C05aOB5py656aP5Yip5aW95Lu3/55WF5Lqr5ZOB6LSo55Sf5rS7/p-5bd8253082acdd181d02f9d8/e07436da/590x470.jpg"></a></li>
+        <li><a href="#"><img src="https://img11.360buyimg.com/da/s1180x940_jfs/t1/134443/13/2496/97524/5eeb1b14E29e39080/6db8612a7b65efa0.jpg.webp"></a></li>
+        <li><a href="#"><img src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/99956/18/17558/87741/5e86b128Eef4b2b82/769140a37382c686.jpg.webp"></a></li>
+        <li><a href="#"><img src="https://img14.360buyimg.com/pop/s1180x940_jfs/t1/115293/37/8433/101063/5ecdb806E3e785d2b/b28d5bca26383697.jpg.webp"></a></li>
+        <li><a href="#"><img src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/126222/14/4583/71641/5ee19bafE3c50e9ea/09feb9f8da0402f3.jpg.webp"></a></li>
+    </ul>
+            <div class="point">
+                <a class="dj" href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+  
+</body>
+</html>

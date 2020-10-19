@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他思想</title>
+</head>
+<body>
+        <button>选我</button>
+        <button>选我</button>
+        <button>选我</button>
+        <button>选我</button>
+        <button>选我</button>
+        <button>选我</button>
+        <script>
+            window.onload=function(){
+                var btn=document.getElementsByTagName("button");
+                for(let i=0;i<btn.length;i++){
+                        btn[i].onclick=function(){
+                            for(let i=0;i<btn.length;i++){
+                                 btn[i].style.backgroundColor='';
+                            }
+                            btn[i].style.backgroundColor='tomato';
+                        }
+                }
+            }
+        </script>
+</body>
+</html>

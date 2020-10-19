@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app" v-dj="seen">sdfsd</div>
+    <script>
+      Vue.directive("dj", {
+        bind: function (el, bind) {
+          console.log(bind.value);
+          if (bind.value) {
+            el.style.display = "block";
+          } else {
+            el.style.display = "none";
+          }
+        },
+      });
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "hello Vue.js",
+          seen: true,
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

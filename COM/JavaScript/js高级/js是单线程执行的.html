@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js是单线程执行的</title>
+</head>
+<body>
+    <script>
+        setTimeout(function(){
+            console.log(2000)
+        },2000);
+        setTimeout(function(){
+            console.log(1000)
+        },1000);
+        function fn(){
+            console.log('fn');
+        }
+        fn();
+        console.log("之前")
+        alert(1);
+        console.log("之后");
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性和方法的继承</title>
+</head>
+<body>
+    <script>
+        function Animal(name,age){
+            this.name=name;
+            this.age=age;
+            this.say=function(){
+                alert("我是一只动物！"+"我的名字叫"+this.name+"今年"+this.age);
+            }
+        }
+        function Dog(name,age){
+            //apply原型是本身
+            Animal.apply(this,[name,age]);
+        
+        }
+        var dog=new Dog("狗子",18);
+        dog.say();
+        
+        function Cat(name,age){
+            //protype原型是Amimal
+            Animal.apply(this,[name,age]);
+        }
+        Cat.prototype=new Animal();
+        var cat=new Cat("猫咪",10);
+        cat.say(); 
+
+    </script>
+</body>
+</html>

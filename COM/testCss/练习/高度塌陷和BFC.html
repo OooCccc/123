@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高度塌陷和BFC</title>
+
+    <style>
+        .box{
+            border: 10px solid black;
+         /* 高度塌陷解决方法
+                将父元素设置BFC(块级元素格式化环境)    即：overflow：hidden；
+          */
+            overflow:hidden;
+        }
+        .son-box{
+            width: 100px;
+            height: 100px;
+            background:  #bbffaa;
+            float: left;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background:  orangered;
+    
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="son-box"></div>
+    </div>
+    <div class="box2">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date对象</title>
+</head>
+<body>
+    <script>
+        var date =new Date();
+        // Date对象的方法
+
+        // 返回一个月中的日 	从 Date 对象返回一个月中的某一天 (1 ~ 31)。
+        document.write(date.getDate()+"<br/>");
+        document.write(date.constructor+"<br/>"); 
+        //向Date对象添加属性
+        Date.prototype.name=null;
+        date.name="dj"+"<br/>";
+        document.write(date.name);
+        //返回年月日，时分秒
+        var week=date.getDay();
+        switch(week){
+            case 0: week="星期天";break;
+            case 1: week="星期一";break;
+            case 2: week="星期二";break;
+            case 3: week="星期三";break;
+            case 4: week="星期四";break;
+            case 5: week="星期五";break;
+            case 6: week="星期六";break;
+        }
+        document.write("今天是："+date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日"+week+" "+date.getHours()+"时"+date.getMinutes()+"分"+date.getSeconds()+"秒"+"<br/>");
+      
+        
+    </script>
+</body>
+</html>

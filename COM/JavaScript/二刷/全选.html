@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选</title>
+</head>
+<body>
+    <form action="">
+    <input type="checkbox">1
+    <input type="checkbox">2
+    <input type="checkbox">3
+    <input type="checkbox">4
+    <input type="checkbox">5
+    <input id="selectAll" type="checkbox" >全选
+</form>
+<script>
+    window.onload=function(){
+            var selectAll=document.getElementById('selectAll');
+            var list=document.getElementsByTagName('input');
+            
+            selectAll.onclick=function(){
+                for(var i=0;i<list.length-1;i++){
+                    list[i].checked=this.checked;
+                }
+            }
+
+            for(var  i=0;i<list.length-1;i++){
+                this.onclick=function(){
+                    selectAll.checked=true;
+                    for(var j=0;j<list.length-1;j++){
+                        if(!list[j].checked){
+                            selectAll.checked=false;
+                        }
+                    }
+                }
+                }
+               
+    }
+</script>
+</body>
+</html>

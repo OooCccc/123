@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发送短信</title>
+</head>
+<body>
+    <input   id="input" type="text"><button  id="btn">发送</button>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById('btn');
+            var input=document.getElementById('input');
+            var time=3;
+            btn.addEventListener("click",function(){
+                btn.disabled=true;
+                btn.timer=setInterval(function(){
+                    if(time==0){
+                        btn.disabled=false;
+                        btn.innerHTML='发送';
+                        clearInterval(btn.timer);
+                        time=3;
+                        console.log();
+                    }else{
+                        btn.innerHTML='剩余'+time+'喵';
+                        time--;
+                    }
+                    },1000);
+            },false);
+        }
+    </script>
+</body>
+</html>

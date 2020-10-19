@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.js"></script>
+    <style>
+        body{
+            display: flex;
+        }
+        .box ,.box2{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        // $(function(){
+        //     console.log(1);
+        // });
+        $(document).ready(function(){
+            // $(".box").click(function(){
+            //     alert(1);
+            // })
+                $("#box1").click(function(){
+                    // $(".box2").toggle();
+                    // alert($(this));
+                    // console.log($(this));//$(".xxxx")jq对象
+                    // console.log(this);//(".xxx")dom 对象
+                    $(this).css("background",'pink');
+                    $("div").css("background",'pink');
+
+                });
+
+                //jq对象和dom对象相互转化
+                // console.log($("div"));//jq对象
+                // console.log($("div").get(1));//通过get（）方法转化为dom对象
+                console.log($("div")[1]);
+                // console.log($(".box .s").text("dj"));
+                // console.log($(".u li:first").text("1"));
+                // console.log($(".u li:last").text("1"));
+                // console.log($(".u li:first-child").text("1"));
+                // console.log($(".u li:last-child").text("1"));
+                // console.log($(".u li:eq(4)").text("4"));
+                // console.log($(".u li:odd").text("奇数列"));
+                // console.log($(".u li:even").text("偶数列"));
+                // console.log($(".u >li:eq(3)").text("4"));
+                // console.log($(".u").children("li").text("3"));
+                console.log($(".u").find("li").text("3"));
+        });
+    </script>
+</head>
+<body>
+    <div class="box" id="box1">
+        <span class="s">ddd</span>
+    </div>
+    <div class="box2" ></div>
+    <ul class="u">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="u">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="u">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+</body>
+</html>

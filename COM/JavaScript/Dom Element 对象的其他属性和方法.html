@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Element对象的其他属性和方法</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #box1{
+            height: 300px;
+            width: 300px;
+            margin: 10px;
+            border: black 2px solid;
+        
+            overflow:auto;
+        
+        }
+        #box2{
+               width: 450px;
+               height: 600px;
+               background-color: #bfa;
+               overflow: hidden;
+              
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //为#btn绑定一个事件
+            var btn=document.getElementById("btn");
+            btn.onclick=function(){
+                // // alert("hello");
+                 var box1=document.getElementById("box1"); 
+                // //style设置的是行样式
+                //     box1.style.width="200px"; 
+                // //返回#box1的样式。读取的也是行内样式 
+                //     alert(box1.style.width);
+                // //读取外部样式用getComputerStyle()方法  只读不可修改
+                //     var style= getComputedStyle(box1,null);
+                //     alert(style.width);
+              
+              
+                //element.clientHeight	返回元素的可见高度。 不包括边框，外边距 ，但是包括内边距
+                // element.clientWidth	返回元素的可见宽度。不包括边框，外边距 ，但是包括内边距
+                    // alert(box1.clientHeight);
+                    // alert(box1.clientWidth);
+
+                // element.offsetHeight	返回元素的高度。不包括边框，外边距 ，但是包括内边距
+                // element.offsetWidth	返回元素的宽度。不包括边框，外边距 ，但是包括内边距
+                    // alert(box1.offsetHeight);  //324 = height(300)+ 24(apdding)+2(border)
+                    // alert(box1.offsetWidth); ////324 = height(300)+ 24(apdding)+2(border)
+
+                // element.offsetLeft	返回元素的水平偏移位置。
+                    // alert(box1.offsetLeft); //10   margin-left: 10px
+                // element.offsetParent	返回元素的偏移容器。如果没有设置postion属性 返回的就是body
+                //否则返回距离最近的祖先元素  
+                    // alert(box1.offsetParent.id);
+                // element.offsetTop	返回元素的垂直偏移位置。
+                    // alert(box1.offsetTop); //10     margin: 10px
+
+                // element.scrollHeight	返回元素的整体高度。
+                // element.scrollWidth	返回元素的整体宽度。
+                    // alert(box1.clientHeight);
+                    // alert(box1.scrollHeight); 
+                    // alert(box1.scrollWidth); 
+                // element.scrollLeft	返回元素左边缘与视图之间的距离
+                    // alert(box1.scrollLeft);  
+                // element.scrollTop	返回元素上边缘与视图之间的距离。
+                    // alert(box1.scrollTop);  
+
+                    //小例子
+                    //scrollHeight-scrollTop==clientHeigth 
+                    //如说相等说明到底了!
+                    // alert(box1.clientHeight); //283
+                    alert(box1.scrollHeight-box1.scrollTop); //283.20000000
+            };
+
+        };
+    </script>
+</head> 
+<body>
+<div id="parent" style="position: relative;">
+        <div id="box" style="position:absolute;">
+            <div id="box1">
+              <div id="box2">
+                <p id="p1">
+                    这条小鱼在乎有这么bai一个故事。在暴风雨du后的一个早晨，一个男人来到海zhi边散步。他一边沿海dao边走着，一边注意到，在沙滩的浅水洼里，有许多被昨夜的暴风雨卷上岸来的小鱼。它们被困在浅水洼里，回不了大海了，虽然近在咫尺。被困的小鱼，也许有几百条，甚至几千条。用不了多久，浅水洼里的水就会被沙粒吸干，被太阳蒸干，这些小鱼都会干死的。
+                    男人继续朝前走。他忽然看见前面有一个小男孩，走得很慢，而且不停地在每一个水洼旁弯下腰去―――他在捡起水洼里的小鱼，并且用力把它们扔回大海。这个男人停下来，注视着这个小男孩，看他拯救着小鱼们的生命。
+                    终于，这个男人忍不住走过去：“孩子，这水洼里有几百几千条小鱼，你救不过来的。”
+                    “我知道。”小男孩头也不抬地回答。
+                    “哦？那你为什么还在扔？谁在乎呢？”
+                    “这条小鱼在乎！”男孩儿一边回答，一边拾起一条鱼扔进大海。
+                    “这条在乎，这条也在乎！还有这一条，这一条，这一条……”
+                    天堂没有睡懒觉
+                    天低低地垂着，铅灰色的云像一块漫了过多水分的湿布挂在天空。
+                    我躺在病床上，身边的
+                </p>
+            </div>
+            </div>
+            <br/>
+            <button id="btn">点我一下试试看</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

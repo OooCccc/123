@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'webfont';
+    font-display: swap;
+    src: url('https://at.alicdn.com/t/webfont_p5c07x1qf9.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/webfont_p5c07x1qf9.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/webfont_p5c07x1qf9.woff2') format('woff2'),
+    url('https://at.alicdn.com/t/webfont_p5c07x1qf9.woff') format('woff'), /* chrome、firefox */
+    url('https://at.alicdn.com/t/webfont_p5c07x1qf9.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/webfont_p5c07x1qf9.svg#思源黑体-极细') format('svg'); /* iOS 4.1- */
+  }
+  .web-font{
+    font-family:"webfont";
+    font-size:30px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscalse;
+  }
+
+  body,html{
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgba(202, 194, 194, 0.671);
+      background-color: #222222;
+      overflow: hidden;
+  }
+  .line{
+      width: 0px;
+      font-size: 30px;
+      white-space:nowrap; 
+      text-align: center;
+      border-right: 2px solid rgba(202, 194, 194, 0.671);
+      overflow: hidden;
+  }
+
+
+@keyframes grow{
+    form  {
+        width: 0px;
+    }
+    to {
+        width: 362px;
+    }
+}
+// 动画
+.animate{
+    animation: grow  3s  steps(12)  .5s  normal both , 
+    line 700ms steps(12)   infinite normal;
+}
+  
+
+@keyframes line{
+    form{
+        border-right-color: #222222;
+    }
+
+    to{
+        border-right-color: transparent;
+    }
+}

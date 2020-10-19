@@ -1,0 +1,33 @@
+.login{
+    width: 100%;
+    padding-top: 50px;
+    overflow: hidden;
+}
+.login img{
+  width: 100px;
+  height: auto;
+}
+.login a{
+  display: block;
+  text-decoration: none;
+  color: black;
+  width: 100px;
+}
+.login a:nth-child(1){
+  float: left;
+  margin-left: 30px;
+}
+.login a:nth-child(2){
+  float: right;
+  margin-right: 30px;
+}
+.login a:nth-child(3){
+  margin-left: 30px;
+  clear: both;
+  margin-top: 200px;
+}
+.login a span{
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+}

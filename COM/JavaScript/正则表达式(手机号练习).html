@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机号练习</title>
+</head>
+<body>
+    <script>
+
+
+
+
+        //检验输入的东西是否是手机号码
+        //手机号满足以下几点：
+
+        // 1.全为数字
+        // 2.11位数字
+        // 3.以1开头，第二位不能是1和2，剩下的可以是任意数字
+    var re=/^1[^012][0-9]{9}$/;
+    re=/^1[^0-2][0-9]{9}$/;
+    re=/^1[3-9][0-9]{9}$/;
+    document.write(re.test("13987088770"));
+    </script>
+
+<style>
+    a{
+      
+        background-color: crimson;
+
+    }
+</style>
+
+<h3><a href="https://www.w3school.com.cn/js/js_regexp.asp" target="_blank">正则表达式的介绍</a></h3>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  i {
+    color: white;
+  }
+}
+.header {
+  width: 100%;
+  background-color: black;
+  padding: 0 15px;
+  .nav-bar {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    .nav {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .menu-bar {
+        position: relative;
+        height: 60px;
+        width: 34px;
+        background-color: black;
+        span {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: white;
+          transform-origin: left;
+          transition: all 0.3s;
+        }
+        & span:nth-child(1) {
+          top: 18px;
+        }
+        & span:nth-child(2) {
+          top: 30px;
+        }
+        & span:nth-child(3) {
+          bottom: 17px;
+        }
+        &:hover span:nth-child(1) {
+          transform: rotateZ(44deg);
+        }
+        &:hover span:nth-child(2) {
+          opacity: 0;
+        }
+        &:hover span:nth-child(3) {
+          transform: rotateZ(-43deg);
+        }
+        &:hover ~ .menu-list {
+          height: 50vh;
+          width: 50vw;
+        }
+      }
+
+      .menu-list {
+        position: absolute;
+        background-color: black;
+        color: white;
+        // display: none;
+        left: -15px;
+        top: 60px;
+        width: 0;
+        height: 0;
+        transition: all 0.6s;
+        overflow: hidden;
+        z-index: 999;
+        ul {
+          width: 100%;
+          height: 100%;
+          padding: 0 15px;
+          li {
+            position: relative;
+            // background-color: red;
+            border-bottom: 1px solid white;
+            height: 60px;
+            padding: 0 3px;
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.2);
+            }
+            a {
+              display: block;
+              height: 100%;
+              width: 100%;
+              color: white;
+            }
+            i {
+              display: block;
+              position: absolute;
+              right: 6px;
+              top: 21.5px;
+            }
+          }
+        }
+        &:hover {
+          height: 50vh;
+          width: 50vw;
+        }
+      }
+      .logo,
+      .help {
+        a {
+          display: block;
+          i {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+.section {
+  width: 100%;
+  height: 100%;
+  .b-img1,
+  .b-img2,
+  .b-img3,
+  .b-img4 {
+      position: relative;
+    background-size: cover;
+    height: 50vh;
+    background-repeat: no-repeat;
+
+    .b-text{
+        position: absolute;
+        height: 35px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        span{
+            display: block;
+            height: 35px;
+            line-height: 35px;
+            font-size: 25px;
+        }
+    }
+  }
+  & .b-img1 {
+    background-image: url(../img/b1.jpg);
+  }
+  & .b-img2 {
+    background-image: url(../img/b2.jpg);
+  }
+  & .b-img3 {
+    background-image: url(../img/b3.jpg);
+  }
+  & .b-img4 {
+    background-image: url(../img/b4.jpg);
+  }
+  //文本
+  .dark{
+    background-color: gray;
+}
+  .paragraph{
+      width: 100%;
+      height: auto;
+      
+      .p-text{
+          width: 80%;
+          margin: 0 auto;
+          padding: 20px 0;
+          p{
+          vertical-align: middle;
+              text-align: justify;
+              text-indent: 2em;
+              font-family: 'Times New Roman', Times, serif;
+            font-size: 17px;
+            }
+    }
+  }
+}
+.bear-b{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/bear-b.png);
+    background-repeat: repeat-x;
+    background-size: 800px ; 
+    background-position-y: 91%;
+    z-index: 1;
+    background-color: black;
+    animation: bgcmove 60s linear .5s infinite;
+    .bear-m{
+        position: absolute;
+        width: 100vw;
+        height: 84px;
+        left: 0;
+        bottom: 35px;
+        background-image: url(../img/bear-m.png);
+        background-repeat: repeat-x;
+        background-size: 800px ; 
+        animation: Mmove 40s linear .9s infinite;
+      
+    }
+    .m2{
+        bottom: 58px;
+        opacity: .6;
+        background-position-x: 40%;
+         animation: Mmove2 50s linear .9s infinite;
+
+    }
+    .bear-warrp{
+        width: 100%;
+        height: 50px;
+        bottom: 0px;
+        left: 0;
+        position: absolute;
+        background-color: rgba(230,238,240);
+        .bear{
+        position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url(../img/bear.png);
+            background-repeat: repeat-x;
+            background-size: 400px; 
+                animation: bear 1s steps(8) infinite forwards , move 3s forwards;
+        }
+    }
+    .moon-container{
+      position: absolute;
+      width: 65px;
+      height: 65px;
+      left: 43px;
+      top: 22px;
+      transform: rotateZ(-15deg);
+      .moon,.moon-copy{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(229,207,162);
+      }
+      .moon-copy{
+        left: 25%;
+        background-color: black;
+      }
+    }
+}
+.footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  background-color: rgb(107, 106, 106);
+  color: white;
+  font-size: 12px;
+  .contact{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      i{
+        display: block;
+        font-size: 20px;
+      }
+    }
+  }
+  .copyright{
+      a{
+        color: white;
+      }
+  }
+}
+//小熊动画
+@keyframes bear {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -400px 0;
+    }
+}
+ /*熊所在的盒子动画 */
+ @keyframes move {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+ /* 背景图片动画 */
+@keyframes bgcmove {
+    0% {
+        background-position: 0 91%;
+    }
+    100% {
+        background-position: -800px 91%;
+    }
+}
+ /* 背景山脉动画 */
+@keyframes Mmove {
+    0% {
+        background-position: 0 0%;
+    }
+    100% {
+        background-position: -800px 0%;
+    }
+}
+@keyframes Mmove2 {
+    0% {
+        background-position: 40% 0%;
+    }
+    100% {
+        background-position: -800px 0%;
+    }
+}
+//媒体查询
+@media screen and (min-width: 600px) {
+  .header {
+    padding: 0 100px;
+    .nav-bar {
+      .nav {
+        .menu-bar {
+          display: none;
+        }
+        .logo {
+          order: 1;
+        }
+        .help {
+          order: 3;
+        }
+        .menu-list {
+          flex-grow: 1;
+          order: 2;
+          position: static;
+          height: 60px;
+          ul {
+            display: flex;
+            justify-content: space-evenly;
+            li {
+              border-bottom: 1px solid red;
+              i {
+                display: none;
+              }
+            }
+          }
+          &:hover {
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
+  .section {
+    width: 100%;
+    height: 100%;
+    .b-img1,
+    .b-img2,
+    .b-img3,
+    .b-img4 {
+      width: 100%;
+      height: 100vh;
+      background-attachment: fixed;
+    }
+  }
+  .bear-b{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/bear-b.png);
+    background-repeat: repeat-x;
+    background-size: 1920px ; 
+    background-position-y: 91%;
+    z-index: 1;
+    animation: bgcmove 100s linear .5s infinite;
+    .bear-m{
+        position: absolute;
+        width: 100vw;
+        height: 118px;
+        left: 0;
+        bottom: 100px;
+        background-image: url(../img/bear-m.png);
+        background-repeat: repeat-x;
+        background-size: 1920px ; 
+        animation: Mmove 80s linear .9s infinite;
+      
+    }
+    .m2{
+        bottom: 133px;
+        opacity: .6;
+        background-position-x: 100px;
+         animation: Mmove2 70s linear .9s infinite;
+    }
+    .bear-warrp{
+        width: 100%;
+        height: 100px;
+        bottom: 0px;
+        left: 0;
+        position: absolute;
+        background-color: rgba(230,238,240);
+        .bear{
+        position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url(../img/bear.png);
+            background-repeat: repeat-x;
+            background-size: 800px; 
+                animation: bear 1s steps(8) infinite forwards , move 3s forwards;
+        }
+    }
+           
+}
+.footer{
+  .contact{
+    width: 15%;
+  }
+}
+//小熊动画
+@keyframes bear {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -800px 0;
+    }
+}
+/* 背景图片动画 */
+@keyframes bgcmove {
+    0% {
+        background-position: 0 91%;
+    }
+    100% {
+        background-position: -1920px 91%;
+    }
+}
+ /* 背景山脉动画 */
+@keyframes Mmove {
+    0% {
+        background-position: 0 0%;
+    }
+    100% {
+        background-position: -1920px 0%;
+    }
+}
+@keyframes Mmove2 {
+    0% {
+        background-position: 40% 0%;
+    }
+    100% {
+        background-position: -1920px 0%;
+    }
+}
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var year=prompt("请输入年份:");
+            if(getRun(year)){
+                alert("二月份29天");
+            }else{
+                alert("二月份28天");
+            }
+            function getRun(year){
+                    var flag;
+                 var re=/[0-9]/;
+                if(re.test(year)){
+                if(year%4==0 && year%100!=0  || year%400==0){
+                    flag=true;
+                }else{
+                    flag=false;
+                }
+            }
+            else{
+                alert("输入错误");
+                exit();
+            }
+            return flag;
+            }
+        //     var num=prompt('请输入数字');
+        //   alert(num<10?"0"+num:num);
+
+
+
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

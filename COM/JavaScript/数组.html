@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js数组</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //声明一个数组
+        //第一种方法
+        var array=new Array();
+        var array1=new Array(3);
+        //第二种方法
+        var a=[];
+        var b=[3];
+        array[0]="dj1";
+        array[1]="dj2";
+        array[2]="dj3";
+        array[3]="dj4";
+          
+        array1[0]=0;
+        array1[1]=1;
+        array1[2]=2;
+
+        for(var i=0;i<array.length;i++){
+            document.write(array[i]+"<br/>");
+        }
+        
+        var a; 
+        for(a in array1){
+            document.write(array1[a]+"<br/>");
+        }
+        //sort() 排序 按照字母顺序或者 数字顺序
+        //join() 将数组变为字符串 用”,“隔开（默认是逗号）
+        document.write(array.join()+"<br/>");
+        //合并数组
+        var a=array.concat(array1);
+        document.write(a.join()+"<br/>")
+        document.write(a.sort()+"<br/>");
+        //颠倒数组元素
+        document.write(a.reverse());
+    </script>
+</body>
+</html>

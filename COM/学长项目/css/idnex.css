@@ -1,0 +1,24 @@
+.manage-items{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.manage-items a{
+    display: block;
+    width: 50%;
+    text-align: center;
+    color: black;
+}
+.manage-items span{
+    display: block;
+}
+.manage-items img{
+    width: 120px;
+    margin: 10px 0;
+}
+.manage-wrap{
+    position: relative;
+    height: 100vh;
+}

@@ -1,0 +1,50 @@
+form >div{
+    margin: 10px 0;
+}
+.edit-info{
+    width: 80%;
+    margin: 0 auto;
+}
+.query-gk{
+    width: 65px;
+    height: 30px;
+    border: none;
+    background-color: #169BD5;
+    border-radius: 5px;
+    color: white;
+}
+.time-select{
+    width: 90px;
+    height: 30px;
+    border: none;
+    background-color: #169BD5;
+    border-radius: 5px;
+    color: white;
+}
+.item-list{
+    border-top: 1px dashed gray;
+}
+.s1{
+    margin-left: 28px;
+}
+.s2{
+    margin-left: -28px;
+}
+form select{
+    width: 152px;
+}
+.del,.save{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: #169BD5;
+    border-radius: 5px;
+    color: white;
+}
+.del{
+    margin-right: 10px;
+}
+.eidt-save{
+    text-align: center;
+    margin: 40px auto;
+}

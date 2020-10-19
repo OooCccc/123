@@ -1,0 +1,23 @@
+table{
+    width: 100%;
+    text-align: center;
+}
+tr{
+    height: 50px;
+}
+.empoyee-info{
+    margin: 0 10px;
+}
+.add-employee img{
+width: 55px;
+}
+.add-employee span{
+display: block;
+color: #8400FF;
+}
+.add-employee {
+margin-left: 10%;
+}
+.purple{
+color:#8400FF;
+}

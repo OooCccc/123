@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的绑定</title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn");
+            // btn.onclick=function(){
+            //     alert(1);
+            // };
+            // btn.onclick=function(){
+            //     alert(2);
+            // };
+            // btn.onclick=function(){
+            //     alert(3);
+            // };
+
+            blind(btn,"click",function(){
+                alert(this);
+                alert(1);
+            })
+
+            blind(btn,"click",function(){
+            alert(2);
+            })
+
+            blind(btn,"click",function(){
+            alert(3);
+            })
+             
+            //  正常浏览器的用法addEventListener("事件click(不能加on)",回调函数,(true|false))
+            //  true - 事件句柄在捕获阶段执
+            //  false - 事件句柄在冒泡阶段执行
+            // btn.addEventListener("click",function(){
+            //     alert(1);
+            // },false);
+
+            // btn.addEventListener("click",function(){
+            //     alert(2);
+
+            // },false);
+            
+            // btn.addEventListener("click",function(){
+            //     alert(3);
+
+            // },false);
+
+            // //ie用attachEvent()方法替代。
+            // btn.attachEvent("onclick",function(){
+            //     alert(1);
+            // });
+            // btn.attachEvent("onclick",function(){
+            //     alert(2);
+            // });
+            // btn.attachEvent("onclick",function(){
+            //     alert(3);
+            // });
+
+
+
+            // function blind(obj,evetStr,callback){
+            // //主流浏览器
+            // if(obj.addEventListener){
+            //     obj.addEventListener(evetStr,callback,false);
+            // }else{
+            // //IE8
+            //     obj.attachEvent("on"+evetStr,function(){
+            //         callback.call(obj);
+            //     });
+            //     }
+            // }
+
+
+            function blind(obj,evenStr,callback){
+            // 正常浏览器
+            if(obj.addEventListener){
+                obj.addEventListener(evenStr,callback,false);
+            }
+            //ie8
+        // 利用call() apply() binld() 重新定义对象
+            else{
+                obj.attachEvent("on"+evenStr,function(){
+                    callback.apply(obj);
+                 
+                });
+            }
+            }
+            };
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下试试</button>
+</body>
+</html>

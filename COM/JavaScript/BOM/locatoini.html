@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loction</title>
+    <style>
+        button{
+            display: block;
+        }
+    </style>
+    <script>
+        function btnEvent(btnStr,fun){
+            var btnStr=document.getElementById(btnStr);
+            btnStr.onclick=fun;
+        }
+       window.onload=function(){
+           //加载事件 location.assign()  打开新的网页 可以返回
+           btnEvent("btn1",function(){
+               alert(0);
+               location.assign("https://www.baidu.com");
+           });
+           //刷新事件
+           btnEvent("btn2",function(){
+               location.reload();
+           });
+           //替换事件    location.replace()打开新的网页 并且不可以返回
+           btnEvent("btn3",function(){
+               location.replace("https://www.baidu.com");
+           });
+        };
+    </script>
+</head>
+<body>
+    <button id="btn1">加载新的页面</button>
+    <button id="btn2">刷新当前页面</button>
+    <button id="btn3">替换当前页面</button>
+    <input type="text">
+</body>
+</html>

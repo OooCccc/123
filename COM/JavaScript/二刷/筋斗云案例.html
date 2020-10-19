@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筋斗云案例</title>
+    <script src="../tools/tools.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            position: relative;
+            width: 480px;
+            display: flex;
+            height: auto;
+            margin: 100px auto;
+        }
+
+        ul li {
+            display: block;
+            width: 20%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        span {
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 50px;
+            background-image: linear-gradient(red, blue);
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul">
+        <span id="span"></span>
+        <li>学习天地</li>
+        <li>学校风光</li>
+        <li>食堂环境</li>
+        <li>宿舍环境</li>
+        <li>教学质量</li>
+        <li>师资力量</li>
+    </ul>
+</body>
+<script>
+    window.onload = function () {
+        var span = document.getElementById('span');
+        var list = document.getElementsByTagName("li");
+        var ul = document.getElementById('ul');
+        var current=0;
+        for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener("mouseenter", function () {
+                move(span, 10, i * 80, "left");
+            });
+            ul.addEventListener('click', function () {
+                current=span.offsetLeft;
+            });
+            ul.addEventListener("mouseleave", function () {
+                move(span, 10, current, "left");
+            });
+        }
+    }
+</script>
+
+</html>

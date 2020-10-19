@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猫弟</title>
+    <script>
+        window.onload = function () {
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+
+            var img = document.getElementsByTagName("img")[0];
+            var imgArr = ["./img/timg1.jpg", "./img/cat2.jpg", "./img/cat3.jpg", "./img/cat4.jpg", "./img/cat1.jpg"];
+            var index = 0;
+
+            var sp=document.getElementById("sp");
+
+            sp.innerHTML="共"+imgArr.length+"张图片，当前图片为第"+(index+1)+"张";
+
+            btn1.onclick = function () {
+                
+
+                index--;
+                if (index < 0) {
+                    index = imgArr.length - 1;
+                }
+                img.src = imgArr[index];
+                sp.innerHTML="共"+imgArr.length+"张图片，当前图片为第"+(index+1)+"张";
+
+            };
+
+            btn2.onclick = function () {
+                index++;
+                if (index > imgArr.length - 1) {
+                    index = 0;
+                }
+                img.src = imgArr[index];
+                sp.innerHTML="共"+imgArr.length+"张图片，当前图片为第"+(index+1)+"张";
+            };
+
+        }
+    </script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #pic {
+        width: 602px;
+        height: 495px;
+        background-color: chocolate;
+        margin: 30px auto;
+        padding: 10px;
+        text-align: center;
+    }
+
+    button {
+        position: relative;
+        top: 5px;
+
+    }
+
+    img {
+        width: 602px;
+        height: 448px;
+
+    }
+</style>
+
+<body>
+    <div id="pic">
+        <span id="sp">共4张图片，当前图片为第1张</span>
+        <img src="./img/timg1.jpg" alt="背景">
+        <button id="btn1">上一张 </button>
+        <button id="btn2">下一张</button>
+
+    </div>
+</body>
+
+</html>

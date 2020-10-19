@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器运用一</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            margin-top: 20px;
+            position: absolute;
+        }
+
+        .line {
+            width: 1px;
+            height: 1000px;
+            background-color: black;
+            position: absolute;
+            left: 800px;
+            top: 0px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            var box = document.getElementById("box");
+            // 给按绑定单击响应函数
+            var time;
+            var speed = 11;
+            btn.onclick = function () {
+                clearInterval(time);
+                //开启一个定时器
+                time = setInterval(function () {
+                    var oldValue=parseInt(getStyle(box,"left"));
+                    var newValue=oldValue + speed ;
+                    if(newValue>800){
+                        newValue=800;
+                    }
+                    box.style.left = newValue+"px";
+                    if (newValue ==800) {
+                        clearInterval(time);
+                    }
+                }, 10);
+
+            }
+
+
+            
+            //输入对象和参数  获取对应的样式值
+            // 参数：
+            //     1.obj 传入的对象
+            //     2.该对象的样式名称
+            // 返回值：
+            //     返回该对象样式的具体数值
+
+
+            // 关于 getComputedStyle 的兼容性问题，在 Chrome 和 Firefox 是支持该属性的，同时 IE 9 10 11 也是支持相同的特性的，IE 8并不支持这个特性。
+            //  IE 8 支持的是 element.currentStyle 这个属性，这个属性返回的值和 getComputedStyle 的返回基本一致，只是在 float 的支持上，
+            //  IE 8 支持的是 styleFloat,这点需要注意。
+            
+            function getStyle(obj,styleName){
+                    //正常浏览器
+                    if(window.getComputedStyle){
+                        return getComputedStyle(obj,null)[styleName];
+                    }
+                    //ie8
+                    else{
+                        return obj.currentStyle[styleName];
+                    }
+            }
+
+            
+
+
+        };
+    </script>
+</head>
+
+<body>
+    <button id="btn">点我方块向右移动</button>
+    <div id="box"></div>
+    <div class="line"></div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽1</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            position: absolute;
+
+
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            z-index: -1;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            box1.onmousedown = function (e) {
+                var ex = e.clientX - box1.offsetLeft;
+                var ey = e.clientY - box1.offsetTop;
+
+                document.onmousemove = function (e) {
+                    var x = e.clientX - ex;
+                    var y = e.clientY - ey;
+
+                    box1.style.left = x + "px";
+                    box1.style.top = y + "px";
+
+                };
+
+                document.onmouseup = function () {
+                    
+                document.onmousemove = null;
+                document.onmouseup = null;
+
+                };
+                return false; 
+                //  取消默认行为
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

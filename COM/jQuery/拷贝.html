@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拷贝</title>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+</head>
+<body>
+    <script>
+            //浅拷贝(覆盖基本数据类型   引用复杂数据类型)
+            /* var obj={
+                name:"dj"
+            }
+            var tragetObj={
+                name:"dj2",
+                age:19,
+                mas:{
+                    sex:"男",
+                    bir:000
+                }
+            }
+             var s=$.extend(obj,tragetObj);
+             obj.mas.bir=1;
+             console.log(obj);
+             console.log(tragetObj); */
+             
+
+             //深拷贝(覆盖基本的数据类型    复杂数据类型重新开辟一个空间)
+             var obj={
+                name:"dj"
+            }
+            var tragetObj={
+                name:"dj2",
+                age:19,
+                mas:{
+                    sex:"男",
+                    bir:000
+                }
+            }
+             var s=$.extend(true,obj,tragetObj);
+             obj.mas.bir=1;
+             console.log(obj);
+             console.log(tragetObj);
+    </script>
+</body>
+</html>

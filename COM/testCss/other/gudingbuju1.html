@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定佈局</title>
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+
+    div {
+        border: 2px red solid;
+        margin: 10px auto 10px auto;
+        padding: 30px;
+    }
+
+    #conf {
+        position: relative;
+        height: 400px;
+    }
+
+    #context {
+        position: absolute;
+        height: 300px;
+        width: 900px;
+
+    }
+
+    #side {
+        width: 400px;
+        height: 300px;
+        margin-right: 10px;
+        padding-right: 10px;
+    }
+</style>
+
+<body>
+    <div id="head">head</div>
+    <div id="conf">
+        <div id="context">context</div>
+        <div id="side">side</div>
+    </div>
+    <div id="foot">foot</div>
+</body>
+
+</html>

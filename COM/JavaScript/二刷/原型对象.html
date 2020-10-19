@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型对象</title>
+    <script>
+            function Persion(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            Persion.prototype.sayName=function(){
+                 return this.name;
+            };
+            Persion.prototype.toString=function(){
+                alert(1);
+                return "Persion[name:"+this.name+"age:"+this.age+"]"
+            };
+             var persion1=new Persion("dj",19);
+             var persion2=new Persion("dj1",192);
+            // document.write(persion1.age+"岁,"+persion1.name);
+            // document.write(persion2.sayName());
+            // document.write(persion1.__proto__.__proto__);
+            // document.write(Persion.prototype);
+            document.write(persion1.toString());
+            document.write(persion1.sayName());
+
+
+    </Script>
+
+</head>
+<body>
+    <header>
+        <section>
+            <aside>
+                <footer>
+                    <div>
+                        <span>
+                            <i>
+                                <canvas>
+                                    <html>cass
+                                        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+                                    </html>
+                                </canvas>
+                            </i>
+                        </span>
+                    </div>
+                </footer>
+            </aside>
+        </section>
+    </header>
+</body>
+</html>

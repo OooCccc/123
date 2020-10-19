@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他思想</title>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <script >
+        $(function(){
+            $("button").click(function(){
+                $(this).css("background","");
+                $(this).siblings().css("background","red");
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <button>选我</button>
+    <button>选我</button>
+    <button>选我</button>
+    <button>选我</button>
+    <button>选我</button>
+</body>
+</html>

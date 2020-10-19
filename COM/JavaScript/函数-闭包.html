@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js常用函数</title>
+</head>
+<body>
+    <script>
+        //闭包，实现计数器
+        var add=(function (){
+            var  count=0;
+            return function (){
+                count +=1;
+                return count;
+            }
+        })();
+    </script>
+</body>
+<img src="./全局函数.png"  width="600px" height="500px" >
+<button id="b1" onclick=" document.getElementById('p1').innerHTML=add();">点击计数!</button>
+<p id="p1">0</p>
+</html>

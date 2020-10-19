@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数3</title>
+</head>
+<script>
+    //Function对象
+    var func=new Function ("name","age","alert(name+'今年'+age+'岁了')"); 
+    func("dj",22);
+    //Fucntion对象的属性 
+    //length 返回对象属性的个数
+    document.write(func.length+"<br/>");
+    //toString() 方法 返回对象的属性 和方法体
+    //anonymous 匿名
+    document.write(func.toString());
+    
+</script>
+<body>
+    
+</body>
+</html>

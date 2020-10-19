@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //含有参数的对象
+        //   function sum(a,b){
+        //          return a+b;
+        //   }
+        //   document.write(sum(1,2)) ;
+
+
+        //
+        function persion(o) {
+
+            document.write("我叫" + o.name + "我今年" + o.age + "岁了，我是一个" + o.sex + "人,我家住在" 
+            + o.addess+"," );
+            o.action();
+            document.write("<br/>");
+
+        }
+        // persion("dj",19,"男","小街");
+
+        var obj1 = {
+            name: "dj111",
+            age: 19,
+            sex: "男",
+            addess: "小街",
+            action: function () {
+                document.write("我喜欢吃！");
+            }
+        }
+        var obj2= {
+            name: "留一手",
+            age: 19,
+            sex: "男",
+            addess: "小街",
+            action: function () {
+                document.write("我也喜欢吃！");
+            }
+        }
+        persion(obj1);
+        persion(obj2);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器运用1</title>
+    <style>
+        #box{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            
+        }
+        .line{
+            position: absolute;
+            left: 500px;
+            top: 0;
+            width: 1px;
+            height: 800px;
+            background-color: teal;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById('btn');
+            var box=document.getElementById('box');
+            var time;
+            let speed=10;
+            btn.onclick=function(){
+                // alert(1);
+                //开启一个定时器
+                 time=setInterval(function(){
+                     var left=box.offsetLeft;
+                     var newleft=left+10;
+                     if(newleft>500){
+                            newleft=500;
+                     }
+                     box.style.left=newleft+'px';
+                     if(newleft==500){
+                         clearInterval(time);
+                     }
+                 },10);
+
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="btn">点我方块向右移动</button>
+    <div id="box"></div>
+    <div class="line"></div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布微博</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin: 100px auto;
+            width: 300px;
+            height: auto;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            position: relative;
+            margin: 10px auto;
+            border-bottom: 1px solid black;
+            width: 90%;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            text-indent: 2px;
+            display: none;
+        }
+        button {
+            position: absolute;
+            right: 0px;
+            top: 3px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>发布微博</p>
+        <form action="#">
+            <textarea class="text" name="" id="" cols="30" rows="10"></textarea>
+            <input  class="submit" type="submit" value="发布">
+        </form>
+        <!-- <p class="content"><button class="btn">删除</button> </p> -->
+    </div>
+
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".submit").on("click",function(){
+                var date=$(".text").val();
+                //创建一个p 并添加到container中
+                var p=$("<p class='content'>"+date+"<button class='btn'>删除</button> </p>");
+                $("form").after(p);
+                p.slideDown();
+                $(".text").val("");
+            });
+            //删除
+                $(".container").on("click","button",function(){
+                    $($(this)).parent("p").slideUp("slow",function(){
+                        $(this).remove();
+                    });
+                });
+            //效果
+        })
+    </script>
+</body>
+
+</html>

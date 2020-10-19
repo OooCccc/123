@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影卡片练习</title>
+    <link rel="stylesheet" href="./图标字体库/css/all.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font: Microsoft Yahei, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #9C9C9C;
+            background-color: #F3F2F3;
+            height: 1000px;
+        }
+
+        .box {
+            position: relative;
+            margin: 60px auto;
+            width: 216px;
+
+            background-color: #F3F2F3;
+            box-shadow: 0 0 10px black;
+        }
+
+        img {
+            width: 216px;
+        }
+
+        .title {
+            position: relative;
+            line-height: 34px;
+            background-color: #fff;
+        }
+
+        span {
+            display: inline-block;
+
+        }
+
+        span.s1 {
+            position: absolute;
+            top: -3px;
+            text-align: center;
+            width: 30px;
+            font-size: 14px;
+            background-color: brown;
+            color: #FFFFFF;
+        
+        }
+
+        span.s2 {
+            font-size: 16px;
+            margin-left: 43px;
+        }
+
+        li {
+            width: 182px;
+            height: 20px;
+            list-style: none;
+        }
+
+        ul {
+            margin-left: 44px;
+        }
+
+        .info {
+            background-color: #FFFFFF;
+            padding-bottom: 7px;
+        }
+
+        .fa {
+            font-size: 10px;
+        }
+
+        .s3 {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            left: -4px;
+            top: 7px;
+            background-color: #1F711D;
+        }
+
+        .s3 {
+            position: absolute;
+            width: 40px;
+            color: #FFFFFF;
+            left: -4px;
+            top: 7px;
+            background-color: #1F711D;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .s4 {
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border-top: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 11px solid #1F711D;
+            left: 36px;
+            top: 7px;
+        }
+
+        .s5 {
+            position: absolute;
+            top: 27px;
+            left: -4px;
+            border-top: 5px solid #1F711D;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid transparent;
+            z-index: -1;
+        }
+
+
+        .dj::after{
+            position: absolute;
+            display: block;
+            content: '';
+            /* height: 50px;
+            width: 50px; */
+            /* background-color: crimson; */
+            top: 100px;
+            border-top: 5px solid #1F711D;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <span class="s3"><b>1.0</b></span>
+        <span class="s4"></span>
+        <span class="s5"></span>
+        <div class="img">
+            <img src="./img/1591619609152124.png" alt="电影">
+        </div>
+        <div class="title">
+        
+            <span class="s1"><i>01</i></span>
+            <span class="s2">少年游之一寸相思</span></div>
+        <div class="info">
+            <ul>
+                <li><span><i class="fa fa-user"></i>主演:</span>&nbsp;&nbsp;&nbsp;<span>张一起，站在那</span></li>
+                <li><span><i class="fa fa-user"></i>类型:</span>&nbsp;&nbsp;&nbsp;<span>国产剧</span></li>
+                <li><span><i class="fa fa-user"></i>状态:</span>&nbsp;&nbsp;&nbsp;<span>高清HD</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="dj" style="height: 100px;width: 100px; background-color:burlywood; position: relative;">daf</div>
+</body>
+
+</html>

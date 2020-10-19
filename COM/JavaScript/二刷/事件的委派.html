@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的委派</title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn");
+            var ul=document.getElementById('u1');
+            btn.onclick=function(){
+                var li=document.createElement("li");
+                li.innerHTML="<a href='#' class='link'>新的超链接</a>"
+                ul.appendChild(li);
+            };
+            ul.onclick=function(e){
+                e=e||window.e;
+                var traget=e.traget||e.srcElement;
+                if(traget.className=="link"){
+                    alert(1); 
+                }
+                };
+        };
+    </script>
+</head>
+
+<body>
+    <button id="btn">点我添加新的超链接</button>
+    <ul id="u1">
+        <li><a href="#"  class="link">超链接1</a></li>
+        <li><a href="#"  class="link">超链接2</a></li>
+        <li><a href="#"  class="link">超链接3</a></li>
+        <li><a href="#"  class="link">超链接4</a></li>
+    </ul>
+</body>
+</html>

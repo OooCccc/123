@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请求取消</title>
+</head>
+
+<body>
+    <button id="btn">发送</button>
+    <button id="btn1">取消</button>
+    <div id="box" style="width:200px;height: 100px; border: 1px solid
+     black;"></div>
+    <script>
+        let box = document.getElementById("box");
+        let btn = document.getElementById("btn");
+        let xhr=null;
+        btn.addEventListener("click", () => {
+            //1.创建对象
+             xhr = new XMLHttpRequest();
+            //超时设置 2s （如果两秒钟没有响应则请求取消）
+            // xhr.timeout=2000;
+            // //超时回调
+            // xhr.ontimeout=()=>{
+            //     alert("请求超时！")
+            // };
+            // //网络回调
+            // xhr.onerror=()=>{
+            //     alert('你的网络出问题了！！');
+            // };
+            // 2.初始化，设置请求方法和url
+            xhr.open("GET", `http://127.0.0.1:8000/anomaly`);//ie7一以下的问题
+            // 3.发送请求
+            xhr.send();
+            // 4.事件绑定，返回事件处理结果
+            // xhr.onreadystatechange = function () {
+            //     //判断
+            //     if (xhr.readyState === 4) {
+            //         if (xhr.status >= 200 && xhr.status < 300) {
+            //             box.innerHTML = xhr.response;
+            //         } else {
+            //             console.log("请求失败！");
+            //         }
+            //     }
+            // }
+        });
+        //手动取消请求
+        btn1.addEventListener("click",()=>{
+                xhr.abort();
+        });
+    </script>
+</body>
+
+</html>

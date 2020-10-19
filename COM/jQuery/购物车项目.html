@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车项目(部分)</title>
+    <!-- <script src="../jQuery/jquery3.5.1.js/jquery3.5.1jquery.js"></script> -->
+    <script src="./jquery3.5.1.js/jq1.1.js"></script>
+    <script>
+          $(document).ready(function(){
+            //商品总计
+            // Sum();
+            //全选功能
+            $(".allSelect").change(function () {
+                $(".single,.allSelect").prop("checked", $(this).prop("checked"));
+            });
+            //取消全选
+            $(".single").change(function () {
+                var lenthSingle = $(".single:checked").length;
+                //写法一
+                if (lenthSingle !== $(".single").length) {
+                    $(".allSelect").prop("checked", false);
+                }
+                else {
+                    $(".allSelect").prop("checked", true);
+                }
+                //写法二
+                /*  lenthSingle===$(".single").length ? $(".allSelect").prop("checked",true): $(".allSelect").prop("checked",false); */
+            });
+            //添加商品数量功能
+            $(".add").click(function () {
+                var n = $(this).siblings(".num-wrap").children(".num").html();//数量
+                n++;
+                $(this).siblings(".num-wrap").children(".num").html(n);
+                // getSum();
+                var sum = 0;//小计
+                //获取当前商品的单价      
+                var currentPrice = $(this).parents("li").siblings().find("span.price").html();
+                currentPrice = parseInt(currentPrice.substr(1));
+                //   console.log(typeof currentPrice);
+                sum += n * currentPrice;
+                sum = "￥" + sum.toFixed(2);
+                //设置小计的值
+                $(this).parents("li").siblings().find("span.total").html(sum);
+                Sum();
+                
+            })
+            //减少商品数量功能
+            $(".cut").click(function () {
+                var n = $(this).siblings(".num-wrap").children(".num").html();
+                n--;
+                if (n < 0) {
+                    return;
+                }
+                $(this).siblings(".num-wrap").children(".num").html(n);
+                // getSum();
+                var sum = 0;//小计
+                //获取当前商品的单价      
+                var currentPrice = $(this).parents("li").siblings().find("span.price").html();
+                currentPrice = parseInt(currentPrice.substr(1));
+                //   console.log(typeof currentPrice);
+                sum += n * currentPrice;
+                sum = "￥" + sum.toFixed(2);
+                //设置小计的值
+                $(this).parents("li").siblings().find("span.total").html(sum);
+             Sum();
+
+            })
+            //操作模块
+            $(".dele").click(function(){
+                $(this).parents(".item").remove();
+                Sum();
+            })
+            //删除选中的商品
+            $(".delete").click(function(){
+                // alert(1)
+                $(".single:checked").parents(".item").remove();
+                $(".allSelect").prop("checked",false);
+                Sum();
+            })
+            //清空购物车
+            $(".clear").click(function(){
+                $(".single").parents(".item").remove();
+                $(".allSelect").prop("checked",false);
+                clear();
+            })
+            //计算总价与商品总数量 num-all 
+            function Sum(){
+                var s=0;
+                var t=0;
+                $(".single").each(function(){
+                     s+= parseInt( $(this).parents('.item').find(".num").html());
+                     $(this).parents(".container").find(".num-all").html(s);
+
+                     t+= parseInt( $(this).parents('.item').find(".total").html().substr(1));
+                     $(this).parents(".container").find(".money-all").html("￥"+t.toFixed(2));
+                    })
+            }
+            //清零
+            function clear(){
+                    $(".money-all").html("￥"+"0.00");
+                    $(".num-all ").html("0");
+            }
+            //计算方法
+            /* function getSum(){
+                var sum = 0;//小计
+                // var n;
+                //获取当前商品的单价      
+                var currentPrice = $(this).parents("li").siblings().find("span.price").html();
+                // if (currentPrice != null) {
+                    currentPrice = parseInt(currentPrice.substr(1));
+                // }
+                //   console.log(typeof currentPrice);
+                sum += n * currentPrice;
+                sum = "￥" + sum.toFixed(2);
+                //设置小计的值
+                $(this).parents("li").siblings().find("span.total").html(sum);
+            } */
+        }) 
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+        }
+
+        a {
+            color: black;
+        }
+
+        .container {
+            position: relative;
+            width: 1000px;
+            height: 730px;
+            margin: 100px auto;
+        }
+
+        .shop-info {
+            padding: 0 5px;
+            display: flex;
+            height: 50px;
+            align-items: center;
+            background-color: #646d64;
+
+        }
+
+        .u1 {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .u3 {
+            display: flex;
+        }
+
+        .u3 li {
+            border: 1px solid black;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .u3 li:nth-child(2) {
+            border-left: none;
+            border-right: none;
+        }
+
+        .u2 {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        .item {
+            margin-top: 10px;
+            border-top: 2px solid black;
+            padding: 0 5px;
+            display: flex;
+            align-items: center;
+            height: 200px;
+        }
+
+        .b1,
+        .b2 {
+            width: 260px;
+            cursor: pointer;
+        }
+
+        .b1 {
+            float: left;
+        }
+
+        .b2 {
+            float: right;
+
+        }
+
+        .botton-wrap {
+            background-color: #646d64;
+            height: 50px;
+            line-height: 50px;
+            overflow: hidden;
+            width: 1000px;
+        }
+        .sum-wrap{
+            bottom: 0px;
+            position: absolute;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .pink {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="shop-info">
+            <div class="allSelsect-wrap">
+                <input type="checkbox" class="allSelect"> 全选
+            </div>
+            <ul class="u1">
+                <li>商品</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>小计</li>
+                <li>操作</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="single-wrap">
+                <input type="checkbox" class="single"> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+            </div>
+            <ul class="u2">
+                <li><span class="shop">商品1</span></li>
+                <li><span class="price">￥12.00</span></li>
+                <li>
+                    <ul class="u3">
+                        <li class="cut">-</li>
+                        <li class="num-wrap"><span class="num">1</span></li>
+                        <li class="add">+</li>
+                    </ul>
+                </li>
+                <li><span class="total">￥12.00</span></li>
+                <li><span class="dele"><a href="javascript:;">删除</a></span></li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="single-wrap">
+                <input type="checkbox" class="single"> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+            </div>
+            <ul class="u2">
+                <li><span class="shop">商品2</span></li>
+                <li><span class="price">￥22.00</span></li>
+                <li>
+                    <ul class="u3">
+                        <li class="cut">-</li>
+                        <li class="num-wrap"><span class="num">1</span></li>
+                        <li class="add">+</li>
+                    </ul>
+                </li>
+                <li><span class="total">￥22.00</span></li>
+                <li><span class="dele"><a href="javascript:;">删除</a></span></li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="single-wrap">
+                <input type="checkbox" class="single"> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+            </div>
+            <ul class="u2">
+                <li><span class="shop">商品3</span></li>
+                <li><span class="price">￥42.00</span></li>
+                <li>
+                    <ul class="u3">
+                        <li class="cut">-</li>
+                        <li class="num-wrap"><span class="num">1</span></li>
+                        <li class="add">+</li>
+                    </ul>
+                </li>
+                <li><span class="total">￥42.00</span></li>
+                <li><span class="dele"><a href="javascript:;">删除</a></span></li>
+            </ul>
+        </div>
+        <div class="sum-wrap">
+            <div class="botton-wrap">
+                <div class="b1">
+                    <input type="checkbox" class="allSelect"> 全选
+                    <span class="delete">
+                        删除选中的商品
+                    </span>
+                    <span class="clear">
+                        清空购物车
+                    </span>
+                </div>
+                <div class="b2">
+                    <span class="num-all-wrap">
+                        已选择 <span class="num-all red">7</span> 商品
+                    </span>
+                    <span class="money-wrap">
+                        总价: <span class="money-all red">￥19.00</span>
+                    </span>
+                    <span class="btn">
+                        结算
+                    </span>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

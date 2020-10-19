@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态的添加属性和方法</title>
+</head>
+<script>
+    function speak(something){
+        alert(something);
+    }
+//     var o=new Object();
+//     // alert(o);
+//     // 动态添加属性和方法
+//     o.name="dj";
+//     o.s=speak("我还是你爸爸");
+//     alert(o.name);
+// //    删除属性和方法
+//     delete o.name;
+//     alert(o.name);
+//     delete o.s;
+//     alert(o.s);
+
+function persion(name,aeg){
+    this.name1=name;
+    
+    this.aeg1=aeg;
+    this.s=speak ;
+}
+    var  p=new persion("dj",12)
+        alert(p.name1);
+        p.s("呵呵我依旧是你爸爸");
+    
+</script>
+<body>
+</body>
+</html>

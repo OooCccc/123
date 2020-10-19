@@ -1,0 +1,33 @@
+
+form >div{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+form >div span{
+    display: block;
+    width: 50px;
+    margin-right: 10px;
+    text-align: right;
+    line-height: 22px;
+}
+.add-del-wrap button{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: #169BD5;
+    border-radius: 5px;
+    color: white;
+}
+.add-del-wrap button a{
+    color: white;
+}
+.e-del{
+    margin-right: 10px;
+}
+.add-employee{
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%);
+}

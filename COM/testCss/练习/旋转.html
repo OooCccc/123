@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转</title>             
+    <style>
+        html{
+            perspective: 1000px;
+            background-color: gray;
+        }
+        .box{
+            width: 250px;
+            height: 400px;
+            /* background-color: tomato; */
+            background-image: url(./img/1591619609152124.png);
+            margin: 200px auto;
+            transition:2s;
+            
+            /* transform: rotateX(45deg); */
+               /* 旋转 */
+            
+        }
+        .box:hover{
+            /* transform-origin: left; */
+            /* transform: translateY(-10px); */
+            /* box-shadow: 10px 10px 10px rgba(0, 0,0,.5); */
+            transform: rotateY(180deg) translateZ(-100px);
+            /* backface-visibility: hidden; */
+            /* transform: rotateZ(180deg); */
+
+        }
+
+     
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

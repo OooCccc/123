@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM对象</title>
+    <script>
+        // BOM对象 
+        //   Window
+        //   Navigator  
+        //   Location
+        //   History
+        //   Screen  移动端用的多
+        // alert(location);  // http://127.0.0.1:5500/JavaScript/BOM/bom.html
+        // alert(history);
+        // alert(self);
+        // document.write(navigator.appCodeName);  //Mozilla
+        // document.write(navigator.appVersion);
+        // document.write(navigator.userAgent); // 指浏览器
+     
+     //如何辨别浏览器
+        var ua=navigator.userAgent;
+        if(/chrome/i.test(ua)){
+            alert("我是chrome");
+        }else if(/firefox/i.test(ua)){
+            alert("我是火狐");
+        }else{
+            alert("我是IE");
+        }
+    </script>
+</head>
+<body>
+   
+</body>
+</html>

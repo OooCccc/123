@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标滚轮事件</title>
+    <style>
+        #box{
+        width: 200px;
+        height: 200px;
+        background: #bbffaa;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box=document.getElementById("box");
+            //非火狐浏览器   wheelDelta属性 150 向上   -150 向下
+            //火狐浏览器    detail 属性  小于0 向上   大于0向下
+            box.onmousewheel=function(e){
+                //判断数鼠标向上滚，还是向下滚
+                e=e||window.event;
+                if(e.wheelDelta>0 ||e.detail<0){
+                    box.style.height=box.clientHeight-10+"px";
+                    if(parseInt(box.style.height)<20){
+                        box.style.height=10+"px";
+                        alert("已经最小了！");
+                    }
+                   return;
+                }else{
+                    box.style.height=box.clientHeight+10+"px";
+                }
+                e.preventDefault();//取消事件默认行为
+                return false;
+            };
+            //火狐浏览器
+            box.addEventListener("DOMMouseScroll",box.onmousewheel,false);
+            
+        };
+    </script>
+</head>
+<body style="height: 2000px;">
+    <div id="box"></div>
+</body>
+</html>

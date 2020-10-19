@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件的冒泡</title>
+    <style>
+      #box1 {
+        width: 300px;
+        height: 300px;
+        background-color: darkgrey;
+      }
+
+      #box2 {
+        width: 200px;
+        height: 200px;
+        background-color: darkorange;
+      }
+
+      #box3 {
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+      }
+    </style>
+    <script>
+      //事件的冒泡 Bubble
+      window.onload = function () {
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+        var box3 = document.getElementById("box3");
+        //为每一个box绑定一个单击事件
+        box1.onclick = function () {
+          alert("box1");
+        };
+        box2.onclick = function (e) {
+          // e.cancelBubble=true;
+          alert("box2");
+        };
+        box3.onclick = function (e) {
+          // e.cancelBubble=true;//阻断事件的冒泡
+          // e.cancelBubble=true;
+          alert("box3");
+        };
+      };
+    </script>
+  </head>
+
+  <body>
+    <div id="box1">
+      <div id="box2">
+        <div id="box3"></div>
+      </div>
+    </div>
+  </body>
+</html>

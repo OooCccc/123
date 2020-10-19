@@ -1,0 +1,36 @@
+.st_tree{
+    padding:10px;
+}
+.st_tree a{
+    text-decoration:none;
+}
+.st_tree ul{
+    padding:0 18px;
+    margin:0;
+     /* 鼠标形状 */
+     cursor:pointer;
+}
+.st_tree ul li{
+    font-size:13px;
+    color:#222;
+    line-height:18px;
+    /* 鼠标形状 */
+    /* cursor:pointer; */
+    list-style:none;
+    background:url(../img/images/三级菜单/folder_closed_blue.svg);
+    background-repeat:no-repeat;
+    padding:0 0 3px 20px;
+}
+.st_tree .folder{
+    background-image:url(../img/images/三级菜单/folder_closed_blue.svg);
+    list-style-image:url(../img/images/三级菜单/closed_item.svg);
+    background-repeat:no-repeat;
+    padding:0 0 0 20px;
+}
+.st_tree .open{
+    list-style-image:url(../img/images/三级菜单/open_item.svg);
+    object-fit: cover;
+    background:url(../img/images/三级菜单/folder_closed_blue.svg);
+    background-repeat:no-repeat;
+    padding:0 0 0 20px;
+}

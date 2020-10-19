@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>官网的小案例</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <!-- 你看到的 v-bind attribute 被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊 attribute -->
+      <div v-bind:title="message">鼠标放在这里几秒后能查看此处绑定的信息</div>
+      <!-- 条件渲染 v-if v-else-if v-else  (只有为真时候才会被渲染)-->
+      <!-- 条件渲染 v-show  (浏览器加载就会渲染，他只是改变了css的display属性)-->
+      <div>
+        <div v-if="seen">if条件渲染</div>
+        <div v-else>else条件渲染</div>
+      </div>
+      <div v-show="show">show条件渲染</div>
+
+      <!-- 循环渲染 -->
+      <ol>
+        <li v-for="item in friuts">{{ item.id +":" +item.name }}</li>
+      </ol>
+
+      <!-- v-text  -->
+      <div>{{message}}</div>
+      <div>{{message}}</div>
+      <div>{{message}}</div>
+      <div>{{message}}</div>
+      <hr />
+
+      <div v-text="message"></div>
+      <div v-text="message"></div>
+      <div v-text="message"></div>
+      <div v-text="message"></div>
+      <!-- v-cloak -->
+      <hr />
+      <div v-cloak>{{ message }}</div>
+      <div v-cloak>{{ message }}</div>
+      <div v-cloak>{{ message }}</div>
+      <div v-cloak>{{ message }}</div>
+      <!-- 事件监听 -->
+      <hr />
+      <div>{{message}}</div>
+      <div v-on:click="reverMessafe">反转消息</div>
+      <!-- 组件 -->
+      <!-- 创建一个 todo-item 组件的实例 -->
+      <ol>
+        <todo-item
+          v-for="item in friuts"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        ></todo-item>
+      </ol>
+      <hr />
+      <!-- class与style绑定 -->
+      <!-- 对象形式 -->
+      <div v-bind:class="{actice:isActice, red:isRed }">class与style绑定</div>
+      <hr />
+      <hr />
+      <!-- 数组形式 -->
+      <div v-bind:class="[actice,red ]">class与style绑定2</div>
+      <!-- 三元表达式 （数组形式）-->
+      <div v-bind:class=" [ isActice ?'actice':' ']">class与style绑定3</div>
+      <!-- 绑定内联样式  直接写-->
+      <div
+        v-bind:style="{color:red,fontSize:fontSize,height:height,width:width }"
+      >
+        绑定内联样式1
+      </div>
+      <!-- 绑定内联样式  绑定到一个对象上-->
+      <div v-bind:style="styleObject">绑定内联样式2</div>
+
+      <div>
+        <span v-for="n in 10">{{ n }} </span>
+      </div>
+
+      <!-- 事件监听 -->
+      <div v-on:click="count+=1">{{count}}</div>
+      <!-- 用方法的形式 -->
+      <div v-on:click="addCount ">{{count}}</div>
+      <!-- 直接在内联js中调用次方法 -->
+      <div v-on:click="addCount1('呵呵，我也能在这里调用！') ">
+        直接在内联js中调用次方法
+      </div>
+    </div>
+
+    <style>
+      .actice {
+        width: 100px;
+        height: 100px;
+      }
+      .red {
+        color: blanchedalmond;
+        background-color: red;
+      }
+    </style>
+  </body>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script>
+    // people = {
+    //   name: "dj",
+    //   age: 10,
+    //   sex: "男",
+    //   say() {
+    //     console.log(this.name, "1");
+    //   },
+    // };
+    // let { say } = people;
+    // say.apply(people);
+
+    // for (const index in people) {
+    //   if (people.hasOwnProperty(index)) {
+    //     console.log(people[index]);
+    //   }
+    // }
+
+    // <!-- 定义一个名为todo_item的组件 -->
+    Vue.component("todo-item", {
+      props: ["todo"],
+      template: "<li>这是一个代办事项</li>",
+    });
+    const app = new Vue({
+      el: "#app",
+      data: {
+        message: "今天的日期是：" + new Date().toLocaleString(),
+        seen: true,
+        show: false,
+        isActice: true,
+        isRed: true,
+        actice: "actice",
+        red: "red",
+        fontSize: "30px",
+        height: "100px",
+        width: "100px",
+        styleObject: {
+          fontSize: "30px",
+          height: "100px",
+          width: "100px",
+          color: "yellow",
+        },
+        friuts: [
+          {
+            id: 0,
+            name: "苹果",
+          },
+          {
+            id: 1,
+            name: "香蕉",
+          },
+          {
+            id: 2,
+            name: "橙子",
+          },
+        ],
+        count: 0,
+      },
+      methods: {
+        reverMessafe: function () {
+          this.message = this.message.split("").reverse().join("");
+        },
+        addCount(e) {
+          alert("你点击的是：" + e.target.tagName);
+          return this.count++;
+        },
+        addCount1(message) {
+          alert("你点击的是：" + message);
+        },
+      },
+    });
+  </script>
+</html>

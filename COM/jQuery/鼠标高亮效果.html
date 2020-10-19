@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标高亮效果</title>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+
+    <style>
+
+        img{
+            width: 200px;
+            height: 200px;
+            vertical-align: top;
+        }
+        .container{
+            background-color: white;
+            border:1px solid white;
+            justify-content: space-around;
+            align-content: space-around;
+            display: flex;
+            flex-wrap: wrap;
+            width: 840px;
+            height: 420px;
+            margin: 100px  auto;
+        
+        }
+        /* .shaw{
+            opacity: 1 !important;
+        }
+        .items{
+            opacity: .7;
+        } */
+    </style>
+</head>
+<body style="background-color:black;">
+    <div class="container">
+        <div class="items">
+            <img src="./img/方形图片/4k-2437286.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="./img/方形图片/pexels-1253057.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="./img/方形图片/pexels-2389349.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="./img/方形图片/pexels-3607053.jpg" alt="">
+            </div>
+        <div class="items">
+            <img src="./img/方形图片/pexels-821718.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="./img/方形图片/pexels-87651.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="./img/方形图片/pexels-1253057.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="./img/方形图片/pexels-3607053.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        $(function (){
+                // $(".items").hover(function(){
+                //     // $(this).addClass("shaw").siblings().removeClass('shaw');
+                // })
+                $(".items").hover(function(){
+                    //鼠标进入
+                    $(this).siblings().stop().fadeTo(200,.7);
+                },function(){
+                    //鼠标离开
+                    $(this).siblings().stop().fadeTo(200,1);
+                })
+        })
+    </script>
+</body>
+</html>

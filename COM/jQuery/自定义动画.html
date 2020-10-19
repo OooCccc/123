@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义动画</title>
+</head>
+<body>
+    <button class="btn">动起来</button>
+    <div class="box"s style="position: absolute; width: 100px; height: 100px;background-color: red;"></div>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <script>
+
+        $(function(){
+            $(".btn").click(function(){
+                $(".box").animate({
+                    left:1000,
+                    opcatity:.5,
+                    width:200,
+                    height:200
+                },5000,function(){
+                    alert(1)
+                });
+            })
+        })
+    </script>
+</body>
+</html>

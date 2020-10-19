@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器练习</title>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="item">x</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ol class="dj">
+        <li>1</li>
+        <li>2</li>
+        <li class="item">x</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</body>
+<script>
+    $(function(){
+        // $(".item").siblings().hide();
+        // $(".item").siblings().css("color","red");
+       
+        // console.log( $(".item").nextAll().length)
+        // console.log( $(".item").prevAll().length);
+        // console.log($("ol").hasClass("dj"));
+        console.log($("ul li,ol li").eq(2).text("dj"));
+        
+    });
+</script>
+</html>

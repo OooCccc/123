@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .oc {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="oc" class="oc">
+        你的瀏覽器不支持画布元素，请更换浏览器！
+    </canvas>
+    <script>
+        window.onload = function () {
+            /** @type {HTMLCanvasElement} */
+            var oc = document.getElementById('oc');
+            if (!oc.getContext) {
+                return;
+            }
+            var ctx = oc.getContext('2d');
+            //获取像素数据集
+            var w = oc.width;
+            var h = oc.height;
+            var oldImageData = ctx.getImageData(0, 0, w, h);
+            var newImageData = ctx.createImageData(w, h);
+            // var color = getPxColor(oldImageData, 0, 0);
+            // console.log(color);
+            var color=[0,0,0,255];
+                setPxColor(newImageData,0,0,color);
+                ctx.putImageData(newImageData,0,0);
+
+
+
+
+
+
+            //获取某个点的颜色
+            function getPxColor(imageData, x, y) {
+                color = [];
+                let w=imageDate.width;
+                color[0] = imageData.data[(y * w + x)*4];
+                color[1] = imageData.data[(y * w + x)*4 + 1];
+                color[2] = imageData.data[(y * w + x)*4 + 2];
+                color[3] = imageData.data[(y * w + x)*4 + 3];
+                return color;
+            }
+            //设置某个像素点的颜色
+            function setPxColor(imageDate, x, y, color) {
+                let w=imageDate.width;
+                imageDate.data[(y * w + x)*4] = color[0];
+                imageDate.data[(y * w + x)*4 + 1] = color[1];
+                imageDate.data[(y * w + x)*4 + 2] = color[2];
+                imageDate.data[(y * w + x)*4+ 3] = color[3];
+            }
+        }
+    </script>
+</body>
+
+</html>

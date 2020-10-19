@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this关键字</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <script>
+            var that;
+            class Father {
+            constructor(x, y) {
+                that=this;
+                this.x = x;
+                this.y = y;
+                this.btn=document.getElementById("btn");
+                this.btn.onclick=this.say;
+            }
+            say(){
+                // console.log(that.x +","+that.y);
+                // console.log(that);
+                console.log(that.x );
+            }
+        }
+        class Son extends Father {
+            constructor(x, y) {
+                super(x,y);
+                this.x = x;
+                this.y = y;
+            }
+        }
+
+        var dj=new Son("dj",1);
+
+    </script>
+</body>
+</html>

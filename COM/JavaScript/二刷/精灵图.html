@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精灵图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .ul{
+            display: flex;
+            flex-wrap: wrap;
+            width: 140px;
+            margin: 100px auto;
+            background-color: brown;
+        }
+        li{
+            list-style: none;
+            display: block;
+            width: 28px;
+            height: 28px;
+            background-image: url(../img/sprite2.png);
+            background-size: 28px auto;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+                var liArr=document.getElementsByTagName("li");
+                for(let i=0;i<liArr.length;i++){
+                        liArr[i].style.backgroundPositionY=i*28+"px";
+                }
+        }
+    </script>
+</head>
+<body>
+    <ul class="ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    </ul>
+</body>
+</html>

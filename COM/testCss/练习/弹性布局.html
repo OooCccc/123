@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            box-sizing: border-box;
+            width: 100%;
+            height: 200px;
+            border: 10px solid tomato;
+        }
+        ul{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            /* 向下排列 */
+            /* flex-direction: column; */
+
+            /* 向上排列 */
+            /* flex-direction: row-reverse; */
+
+            /* 默认：row 从左向右排列 */
+            /* flex-direction: row; */
+
+            /* 从右向左排列 */
+            /* flex-direction: column-reverse; */
+            
+            /* 默认:nowrap 不换行 */
+            /* flex-wrap:nowrap ; */
+
+            /* 换行 wrap */
+            /* flex-wrap: wrap; */
+            /* 反向换行 */
+            /* flex-wrap: wrap-reverse; */
+
+            /* flex-direction和 flex-wrap的简写属性 */
+            /* flex-flow: column nowrap; */
+
+            /* justify-content属性定义了项目在主轴上的对齐方式。 */
+            /*  flex-start（默认值）：左对齐
+                flex-end：右对齐
+                center： 居中
+                space-between：两端对齐，项目之间的间隔都相等。
+                space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。     
+            */
+            /* justify-content: center; */
+                /* justify-content:flex-end; */
+                /* justify-content:center; */
+
+
+            /* align-items属性定义项目在交叉轴上如何对齐。 */
+                /*  flex-start：交叉轴的起点对齐。
+                    flex-end：交叉轴的终点对齐。
+                    center：交叉轴的中点对齐。
+                    baseline: 项目的第一行文字的基线对齐。
+                    stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+                 */
+                 align-items: flex-start;
+
+
+            /* align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。 */
+                 /* flex-start：与交叉轴的起点对齐。
+                    flex-end：与交叉轴的终点对齐。
+                    center：与交叉轴的中点对齐。
+                    space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+                    space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+                    stretch（默认值）：轴线占满整个交叉轴。
+                 */
+        }
+        li{
+            list-style: none;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 50px;
+            text-align: center;
+            flex: auto;
+
+        /*  4.5 flex属性
+            flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+            auto (1 1 auto) 
+            none (0 0 auto)。
+            */
+        }
+        li:nth-child(1){
+            background-color: red;
+            order: 3;
+            /* flex-grow: 1; */
+            /* flex-shrink: 3; */
+        }
+        li:nth-child(2){
+            order: 2;
+            /* flex-grow: 2; */
+            /* flex-shrink: 2; */
+            background-color: yellow;
+            align-self: flex-end;
+        }
+        li:nth-child(3){
+            background-color: violet;
+            order: 1;
+            /* flex-grow: 0; */
+            /* flex-shrink:0; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <!-- <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li> -->
+        </ul>
+    </div>
+</body>
+</html>

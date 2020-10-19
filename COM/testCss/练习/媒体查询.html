@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体查询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @media screen and (max-width: 500px) {
+            html {
+                background-color: #bfa;
+                vertical-align: ;
+            }
+        }
+
+        .box {
+            /* position: relative; */
+            display: flex;
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        span {
+            height: 50px;
+            width: 50px;
+            display: block;
+            /* position: absolute; */
+            background-color: yellow;
+            /* margin:  auto; */
+            text-align: center;
+            /* transform: translate(25px,25px); */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span>haha</span>
+    </div>
+</body>
+
+</html>

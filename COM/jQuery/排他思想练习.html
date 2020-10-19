@@ -1,0 +1,68 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他思想练习</title>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <style>
+        .box{
+            height: auto;
+        }
+        ul{
+            position: relative;
+            width: 200px;
+        }
+        li{
+            list-style: none;
+            margin-bottom: 5px;
+        }
+        a{
+            display:inline-block;
+            width: 80px;
+            height: auto;
+            background-color: gray;
+            text-align: center;
+            border-radius: 5px;
+        }
+        li:nth-child(5)> a{
+            background-color: pink;
+        }
+        .img{
+            position: absolute;
+            height: 124px;
+            width: 200px;
+            background-color: pink;
+            top: 0;
+            left: 120px;
+            /* display: none; */
+        }
+    </style>
+    <script >
+        $(function(){
+            //为每一张图片设置不同的背景色
+            var bcolor=["hotpink","yellow","black","blue","pink"];
+            $("li").click(function(){
+                //获取当前元素的索引号
+                 var index=$(this).index();
+                $(this).find(".img").show();
+                $(this).find("a").css("background",bcolor[index]);
+                $(this).siblings().find("a").css("background",'gray');
+                $(this).siblings().find(".img").hide();
+                $(".img").eq(index).css("background",bcolor[index]);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><a>一</a> <div class="img" title="我是图片一">我是图片一</div></li>
+            <li><a>二</a> <div class="img" title="我是图片二">我是图片二</div></li>
+            <li><a>三</a> <div class="img" title="我是图片三">我是图片三</div></li>
+            <li><a>四</a> <div class="img" title="我是图片四">我是图片四</div></li>
+            <li><a>五</a> <div class="img" title="我是图片五">我是图片五</div></li>
+        </ul>
+    </div>
+</body>
+</html>

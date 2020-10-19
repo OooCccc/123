@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>王者荣耀手风琴效果</title>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <style>
+      body {
+        background-color: #20466d;
+      }
+      img.small {
+        width: 69px;
+      }
+      img.big {
+        display: none;
+      }
+      .container {
+        margin: 100px auto;
+        display: flex;
+        /* justify-content: space-around; */
+        flex-wrap: nowrap;
+        width: 638px;
+        height: auto;
+        background-color: #20466d;
+      }
+      .items {
+        position: relative;
+        display: flex;
+        cursor: pointer;
+      }
+
+      /* .items:nth-child(1)  img:first-child {
+            display: block;
+        }  */
+    </style>
+    <script>
+      $(function () {
+        // 无动画效果
+        /* $(".small").mouseenter(function(){
+                $(this).parent().siblings().find(".big").hide();
+                $(this).parent().siblings().find(".small").show();
+                $(this).stop().fadeOut(10).siblings().css("display","block");
+            }) */
+        // 有动画效果
+
+        $(".items").mouseenter(function () {
+          $(this)
+            .stop()
+            .animate({
+              width: 224,
+            })
+            .find(".small")
+            .stop()
+            .fadeOut()
+            .siblings(".big")
+            .stop()
+            .fadeIn();
+
+          $(this)
+            .siblings(".items")
+            .stop()
+            .animate({
+              width: 69,
+            })
+            .find(".small")
+            .stop()
+            .fadeIn()
+            .siblings(".big")
+            .stop()
+            .fadeOut();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="items">
+        <img class="big" src="./img/东皇1.png" alt="" />
+        <img class="small" src="./img/东皇.jpg" alt="" />
+      </div>
+      <div class="items">
+        <img class="big" src="./img/伽罗1.png" alt="" />
+        <img class="small" src="./img/伽罗.jpg" alt="" />
+      </div>
+      <div class="items">
+        <img class="big" src="./img/典韦.png" alt="" />
+        <img class="small" src="./img/典韦1.jpg" alt="" />
+      </div>
+      <div class="items">
+        <img class="big" src="./img/梦溪1.png" alt="" />
+        <img class="small" src="./img/梦溪.jpg" alt="" />
+      </div>
+      <div class="items">
+        <img class="big" src="./img/瑶妹1.png" alt="" />
+        <img class="small" src="./img/瑶妹.jpg" alt="" />
+      </div>
+      <div class="items">
+        <img class="big" src="./img/王昭君1.png" alt="" />
+        <img class="small" src="./img/王昭君.jpg" alt="" />
+      </div>
+      <div class="items">
+        <img class="big" src="./img/玄策1.png" alt="" />
+        <img class="small" src="./img/玄策.jpg" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

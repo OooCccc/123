@@ -1,0 +1,72 @@
+{
+  "id": "1897631",
+  "name": "djicon",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15362375",
+      "name": "avatar06",
+      "font_class": "06",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "15363117",
+      "name": "avatar05",
+      "font_class": "05",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "15371551",
+      "name": "avatar01",
+      "font_class": "01",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "15396631",
+      "name": "avatar17",
+      "font_class": "17",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "15398721",
+      "name": "avatar19",
+      "font_class": "19",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "15399113",
+      "name": "avatar20",
+      "font_class": "20",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "15360922",
+      "name": "avatar09",
+      "font_class": "avatar09",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "15361450",
+      "name": "avatar08",
+      "font_class": "08",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "15362186",
+      "name": "avatar07",
+      "font_class": "07",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    }
+  ]
+}

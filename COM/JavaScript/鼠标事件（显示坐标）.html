@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标坐标显示事件</title>
+    <style>
+        div {
+            border: 1px black solid;
+        }
+
+        #box1 {
+            width: 300px;
+            height: 200px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #box2 {
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // clientX	返回当事件被触发时，鼠标指针的水平坐标。
+            // clientY	返回当事件被触发时，鼠标指针的垂直坐标。
+
+            var moveDiv = document.getElementById("box1");
+            var showMes = document.getElementById("box2");
+            //为moveDiv绑定一个鼠标移动事件
+            moveDiv.onmousemove = function (e) {
+                // alert("你好");
+                //事件的兼容性问题
+                e = e || window.event;
+                var x = e.clientX;
+                var y = e.clientY;
+                showMes.innerHTML = x + "," + y;
+            moveDiv.onmouseup = function () {
+                   alert("您点了一下，坐标为："+x+","+y);
+                };
+            };
+
+
+
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

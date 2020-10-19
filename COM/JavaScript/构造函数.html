@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+<body>  
+    <script>
+        function fun(){
+        alert(this.name);
+        }
+        function Persion(name , age , sex){
+            this.name=name;
+            this.age=age;
+            this.sex=sex;
+            this.sayName=fun;
+        }
+        function Dog(name , age , sex){
+            this.name=name;
+            this.age=age;
+            this.sex=sex;
+            this.sayName=fun;
+        }
+        var persion =new Persion("dj",19,"男");
+        var dog=new Dog("汪汪~~",12,"男");
+        
+        persion.sayName();
+        dog.sayName();
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>table</title>
+    </head>
+<style type="text/css">
+    .t{
+        border: 2px black  solid;
+    /* 设置边框分离，合并 默认是 separate(分离)	collapse 合并； */ 
+        border-collapse:collapse;
+        /* 设置单元格的间距 */
+        border-spacing: 10px;
+        /* 设置表格的宽度 */
+        table-layout:auto;
+      
+    }
+    tr,th,td{
+        border: 2px  black solid;
+        padding: 10px;
+    }
+    th+td+td{
+        background-color: lightgreen;
+    }
+    .t tr{
+        background-color:#CCcC;
+
+    }
+    tbody tr.t1{
+        background-color: red;
+    }
+    tbody tr:hover{
+        background-color: blue;
+
+    }
+
+</style>    
+<body>
+    <!-- tr>行 td>列 th>表头  -->
+    <table class="t">
+        <caption>学生信息</caption>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>出生日期</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <td>001</td>
+                <td>魏安复</td>
+                <td>男</td>
+                <td>2012-12-12</td>
+            </tr>
+            <tr class="t1">
+                <th>2</th>
+                <td>002</td>
+                <td>杜子腾</td>
+                <td>女</td>
+                <td>2011-11-11</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>003</td>
+                <td>史珍湘</td>
+                <td>女</td>
+                <td>2010-10-10</td>
+            </tr>
+            <tr class="t1">
+                <th>4</th>
+                <td>004</td>
+                <td>梅读</td>
+                <td>女</td>
+                <td>2009-10-10</td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td>005</td>
+                <td>赖月金</td>
+                <td>男</td>
+                <td>2008-01-01</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>总计</th>
+                <th colspan="4">5条数据</th>
+            </tr>
+        </tfoot>
+    </table>
+    <img src="./img/QQ图片20200517221605.png" >
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的绑定</title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById('btn');
+            // btn.onclick=function(){
+            //     alert(1);
+            // };
+            // btn.onclick=function(){
+            //     alert(2);
+            // };
+            // btn.onclick=function(){
+            //     alert(3);
+            // };
+            //大部分浏览器
+            // btn.addEventListener("click",function(){
+            //     alert(1);
+            // },false);
+            // btn.addEventListener("click",function(){
+            //     alert(2);
+            // },false);
+            // btn.addEventListener("click",function(){
+            //     alert(3);
+            // },false);
+
+            //ie8
+            // btn.attachEvent('onclick',function(){
+            //     alert(1);
+            // });
+            // btn.attachEvent('onclick',function(){
+            //     alert(2);
+            // });
+            // btn.attachEvent('onclick',function(){
+            //     alert(3);
+            // });
+
+            addEvent(btn,"click",function(){
+                alert(1);
+                alert(this);
+            });
+
+            //创建一个方法来添加事件
+            function addEvent(obj,eventStr,callback){
+                //正常浏览器
+                if(obj.addEventListener){
+                    obj.addEventListener(eventStr ,callback,false)
+                }
+                else{
+                    obj.attachEvent('on'+eventStr,function(){
+                        callback.call(obj);
+                    });
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下试试看看</button>
+</body>
+</html>

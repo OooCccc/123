@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lesson07/lib/bootstrap-3.3.7/css/bootstrap.css">
+    <script src="../lesson07/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../lesson07/lib/jquery-2.0.3.min.js"></script>
+    <script src="../testCss/练习/图标字体库/css/all.css"></script>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            transition: all .6s;
+        }
+
+        .box:hover {
+            height: 200px;
+        }
+
+        .d {
+            background-color: blue;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+    <div class="container" style="background-color: crimson;">
+        <div class="row ">
+            <div class=" col-md-6">
+                <div class=" row col-md-6">
+                    <div class="col-md-4" style="background-color: darkgreen;">1</div>
+                    <div class="col-md-4">2</div>
+                    <div class="col-md-4">3</div>
+                </div>
+                <div class="col-md-6">1.2</div>
+            </div>
+            <div class=" col-md-6" ">2</div>
+        </div>
+    </div>
+    <address>www.baidu.com <br>
+        www.baidu.com  <br>
+         www.baidu.com <br>
+    </address>
+    <header>
+        头部
+    </header>
+    <article>
+        内容
+    </article>
+    <aside>
+        侧栏
+    </aside>
+    <footer>
+    底部
+    </footer>
+    <code>
+        &lt;h1&gt;这是h1标题 &lt;/h1&gt;
+    </code>
+
+
+
+    <table class=" table table-hover table-responsive table-bordered"
+                style=" width: 800px; margin: 0 auto; text-align: center;">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>学号</th>
+                        <th>年龄</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">1-1</td>
+                        <td>1-2</td>
+                        <td>1-3</td>
+                    </tr>
+                    <tr>
+                        <td>2-1</td>
+                        <td>2-2</td>
+                        <!-- <td>2-3</td> -->
+                    </tr>
+                    <tr>
+                        <td colspan="2">3-1</td>
+                        <!-- <td>3-2</td> -->
+                        <!-- <td>3-3</td> -->
+                    </tr>
+                </tbody>
+                </table>
+
+
+                <form action="" method="POST" role="form" style="width: 800px; margin:0 auto;">
+                    <legend style="text-align: center;">这是一个垂直表单(用户注册)</legend>
+                    <div class="form-group">
+                        <label for="">userName</label>
+                        <input type="text" class="form-control" id="" placeholder="Please input username">
+                    </div>
+                    <div class="form-group">
+                        <label for="">passWord</label>
+                        <input type="password" class="form-control" id="" placeholder="Please input passWord">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-id">出生年月</label>
+                        <input type="date" name="" id="input" class="form-control" value="" required="required"
+                            title="">
+                    </div>
+                    <div class="form-group">
+                        <label for="">电子邮件</label>
+                        <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId"
+                            placeholder="">
+                        <!-- <small id="emailHelpId" class="form-text text-muted">Help text</small> -->
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="">兴趣爱好:</label>
+                        <label>
+                            <input type="checkbox" value="" name="checkbox">
+                            Checkbox
+                        </label>
+                        <label>
+                            <input type="checkbox" value="" name="checkbox">
+                            Checkbox
+                        </label>
+                        <label>
+                            <input type="checkbox" value="" name="checkbox">
+                            Checkbox
+                        </label>
+                    </div>
+
+
+                    <div class="form-check form-group">
+                        <label for="">性别:</label>
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="sex" id="" value="checkedValue" checked>
+                            男
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="sex" id="" value="checkedValue" checked>
+                            女
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="">备注</label>
+                        <textarea class="form-control" name="" id="" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input" class="col-sm-2 control-label">hahah :</label>
+                            <select name="" id="input" class="form-control" required="required">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="" selected>5</option>
+                                <option value="">6</option>
+                                <option value="">7</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <div class=" col-offset-2">
+                            <button type="submit" class="btn btn-primary">primary</button>
+                            <button type="reset" class="btn btn-warning">warning</button>
+                            <button type="reset" class="btn btn-info">info</button>
+                            <button type="reset" class="btn btn-danger">danger</button>
+                            <button type="reset" class="btn btn-success">success</button>
+                            <input type="reset" value="Reset" class="btn btn-primary">
+                        </div>
+                        </div>
+                </form>
+
+                
+               
+
+
+
+
+
+                <hr>
+
+
+
+
+
+
+
+                <form action="" method="POST" class="form-inline" role="form" style="width:800px; margin: 0 auto; ">
+                 
+                    <div style="text-align: center;">   <span>这是一个行内表单</span></div>
+                    <div class="form-group">
+                        <span>电子邮件</span>
+                        <input type="email" class="form-control" id="" placeholder="Input field">
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+                            <span>mima:</span>
+                            <input type="password" name="" id="input" class="form-control" required="required" title="">
+                        </div>
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            Checkbox
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+
+
+<hr>
+                    
+                    <form action="" method="POST" class="form-horizontal" role="form" style="width: 800px;margin: 0 auto;">
+                            <div class="form-group">
+                                <legend style="text-align: center;">这是一个水平表单</legend>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="input-password" class="col-sm-2 control-label">password:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" name="-password" id="input-password" class="form-control" required="required" title="">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <label for="">男:</label>
+                                    <input type="radio" name="" id="input" value="" checked="checked">
+                                    <label for="">女:</label>
+                                    <input type="radio" name="" id="input" value="" checked="checked">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <button type="reset" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-sm-10 col-sm-offset-2">
+                                        <label for="">新区爱好:</label>
+                                        <input  type="checkbox" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-10 col-sm-offset-2">
+                                        <input type="datetime" name="" id="">
+                                    </div>
+                                </div>
+                                
+                    </form>
+                    
+
+                    
+                    <form action="" method="POST" class="form-inline" role="form">
+                    
+                        <div class="form-group">
+                            <label class="" for="">label</label>
+                            <input type="email" class="form-control" id="" placeholder="Input field">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="">哈哈是</label>
+                            <select name="" id="input" class="form-control">
+                                <option value="">-- Select One --</option>
+                                <option value="">-- Select One --</option>
+                                <option value="">-- Select One --</option>
+                                <option value="">-- Select One --</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="">sfasfsfd</label>
+                           <input type="datetime" name="" id="">
+                        </div>
+                    
+                        
+                    
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                    <form action="" method="POST" role="form">
+                        <legend>Form title</legend>
+                    
+                        <div class="form-group has-feedback">
+                            <label for="">label</label>
+                            <input type="text" class="form-control " id="" placeholder="Input field">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        </div>
+                        <button type="button" class="btn btn-success">button</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    
+                    
+</body>
+
+</html>

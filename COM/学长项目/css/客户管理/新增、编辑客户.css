@@ -1,0 +1,30 @@
+form >div{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+form >div span{
+    width: 100px;
+    text-align: right;
+    line-height: 24px;
+}
+form >div input{
+    width: 118px;
+}
+form >div select{
+    width: 120px;
+}
+small{
+    color: red;
+}
+.submit{
+    width: 100%;
+}
+.submit button{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #169BD5;
+    color: white;
+}

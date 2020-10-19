@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .canvas{
+            position: absolute;
+            background-color: gray;
+            margin:  auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+              /** @type {HTMLCanvasElement} */
+            var canvas=document.getElementById('canvas');
+            if(canvas.getContext){
+                    var mycans=canvas.getContext('2d');
+            }
+            var img =new Image();
+            img.src='img/图层 1.png';
+            img.onload=function(){
+                draw(img);
+            };
+
+            function draw(img){
+                var bc=mycans.createPattern(img,"repeat");
+                mycans.fillStyle=bc;
+                mycans.fillRect(0,0,0,0);
+            }   
+        }
+    </script>
+</head>
+<body>
+    <canvas id="canvas" class="canvas" >
+        你的浏览器不支持画布元素，请更换浏览器！
+    </canvas>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.blog.entity.Blog"%>
+<%@ page import="java.util.List"%>
+<%@ page import="com.blog.util.MarkDownUtil"%>
+<%@ page import="com.blog.util.Page"%>
+<%@ page import="com.blog.service.impl.*"%>
+<%@ page import="com.blog.service.*"%>
+<%
+	//项目的虚拟路径 /Blog
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!-- 设置基础路径   http://localhost:8080/Blog/  -->
+<base href="<%=basePath%>}">
+
+<%
+    //分页
+    int start = 0;
+    int count = 6;
+    int pageNumber=1;
+    try {
+
+        pageNumber=Integer.parseInt(request.getParameter("page"));
+        start = Integer.parseInt(request.getParameter("page.start"));
+        count = Integer.parseInt(request.getParameter("page.count"));
+
+    } catch (Exception e) {
+
+    }
+    Page pageBreak = new Page(start, count,pageNumber);
+
+    SiteService siteService=new SiteServiceImpl();
+    BlogService blogService = new BlogServiceImpl();
+    RightService rightService = new RightServiceImpl();
+    PhotoService photoService = new PhotoServiceImpl();
+    pageBreak.setTotal(blogService.selAllBlogCount());
+
+    request.setAttribute("pageBreak", pageBreak);
+    request.setAttribute("ShowBlogByPage", selAllBlogToHtml(blogService.selBlogByPage(pageBreak.ToStart(pageBreak.getPageNumber(),pageBreak.getCount()), pageBreak.getCount())));
+
+
+    request.setAttribute("right", rightService.selRight());
+    request.setAttribute("ShowIndex", selAllBlogToHtml(blogService.selAllBlog()));
+    request.setAttribute("HeaderPhoto", photoService.selPhoto(1));
+    request.setAttribute("showIndexCount", blogService.selAllBlogCount());
+    request.setAttribute("site",siteService.selSite());
+
+
+%>
+<%!
+    public static List<Blog> selAllBlogToHtml(List<Blog> list) {
+        for (Blog blog : list) {
+            blog.setContent(MarkDownUtil.mdToHtml(blog.getContent()));
+        }
+        return list;
+    }
+%>
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>我的博客</title>
+    <meta name="description">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="blog/img/favicon.png">
+    <link rel="stylesheet" href="blog/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css">
+    <style type="text/css">
+        #nav {
+            opacity: 1
+        }
+
+        .justified-gallery img {
+            opacity: 1
+        }
+
+        /* 背景 */
+        #page-header {
+            background-image: url(blog/img/index3.jpg);
+            background-attachment: fixed !important;
+        }
+
+        .pageJump {
+            display: inline-block;
+            padding-left: 0;
+            margin: 0px 0px 0px 60px;
+            border-radius: 4px;
+            vertical-align: top;
+        }
+
+        .pageJump input {
+            width: 40px;
+        }
+
+        .pageJump .button,
+        .pageJump input {
+            font-size: 16px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <script src="blog/js/global_config.js"></script>
+    <script id="config_change" src="blog/js/global_change.js"></script>
+    <script src="blog/js/set_theme.js"></script>
+    <meta name="generator" content="Hexo 5.1.1">
+</head>
+
+<body>
+    <div id="mobile-sidebar">
+        <div id="menu_mask"></div>
+    </div>
+    <div id="body-wrap">
+        <header class="full_page" id="page-header">
+            <nav id="nav">
+                <span id="blog_name"><a id="site-name" href="blog/index.jsp">${requestScope.site.name}</a></span><span
+                    id="menus">
+                    <div class="menus_items">
+                        <div class="menus_item">
+                            <a class="site-page" href="blog/index.jsp"><i class="fa-fw fas fa-home"></i><span>
+                                    首页</span></a>
+                        </div>
+                        <div class="menus_item">
+                            <a class="site-page" href="blog/archives.jsp"><i class="fa-fw fas fa-archive"></i><span>
+                                    时间轴</span></a>
+                        </div>
+                        <div class="menus_item">
+                            <a class="site-page" href="blog/tags.jsp"><i class="fa-fw fas fa-tags"></i><span>
+                                    标签</span></a>
+                        </div>
+                        <div class="menus_item">
+                            <a class="site-page" href="blog/categories.jsp"><i
+                                    class="fa-fw fas fa-folder-open"></i><span> 分类</span></a>
+                        </div>
+
+                        <div class="menus_item">
+                            <a class="site-page" href="blog/link.jsp"><i class="fa-fw fas fa-link"></i><span>
+                                    友链</span></a>
+                        </div>
+                        <div class="menus_item">
+                            <a class="site-page" href="blog/about.jsp"><i class="fa-fw fas fa-heart"></i><span>
+                                    关于</span></a>
+                        </div>
+                    </div> <span class="close" id="toggle-menu"><a class="site-page"><i
+                                class="fas fa-bars fa-fw"></i></a></span>
+                </span>
+            </nav>
+            <div id="site-info">
+                <h1 id="site_title"></h1>
+                <div id="site_subtitle">
+                    <span id="subtitle"></span>
+                </div>
+            </div>
+            <div id="scroll_down">
+                <i class="fas fa-angle-down scroll-down-effects"></i>
+            </div>
+        </header>
+
+        <main class="layout_page" id="content-inner">
+            <div class="recent-posts" id="recent-posts">
+                <c:forEach items="${requestScope.ShowBlogByPage}" var="blog">
+                    <div class="recent-post-item">
+                        <div class="post_cover left_radius">
+                            <a href="BlogShowServlet?blogID=${blog.id}" title="${blog.title}">
+                                <img class="post_bg lazyload" data-src="${blog.photo}"
+                                    onerror="this.onerror=null;this.src='blog/img/404.jpg'" alt="${blog.title}">
+                            </a>
+                        </div>
+                        <div class="recent-post-info">
+                            <a class="article-title" href="BlogShowServlet?blogID=${blog.id}"
+                                title="${blog.title}">${blog.title}</a>
+                            <div class="article-meta-wrap">
+                                <time class="post-meta__date" title="发表于 ${blog.uploadTime}">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>${blog.uploadTime}
+                                </time>
+                                <span class="article-meta"><span class="article-meta__separator">|</span> <i
+                                        class="fa fa-inbox article-meta__icon" aria-hidden="true"></i>
+                                    <a class="article-meta__categories" href="/categories/mysql/">${blog.catalog}</a>
+                                </span>
+                            </div>
+                            <div class="content">${blog.content}</div>
+                        </div>
+
+                    </div>
+                </c:forEach>
+
+                <!-- 				//分页 -->
+                <nav id="pagination" style="margin-top: 1.7rem;">
+                    <div class="pagination">
+                        <a class="extend prev" id="prevBlogPage" rel="prev"
+                            href="blog/index.jsp?page=${pageBreak.pageNumber-1}"> <i class="fa fa-fw fa-chevron-left"
+                                aria-hidden="true"></i>
+                        </a> <a id="FirstPage" class="page-number current" href="blog/index.jsp?page=1">1</a>
+                        <c:forEach begin="2" end="3" step="1" varStatus="var">
+                            <a class="page-number" href="blog/index.jsp?page=${var.current}">${var.current}</a>
+                        </c:forEach>
+
+                        <c:if test="${pageBreak.getTotalPage()>3&&pageBreak.pageNumber-2>3}">
+                            <a class="space">&hellip;</a>
+                        </c:if>
+
+                        <c:if test="${pageBreak.pageNumber>3}">
+
+                            <c:if test="${pageBreak.pageNumber!=4}">
+                                <a class="page-number"
+                                    href="blog/index.jsp?page=${pageBreak.pageNumber-1}">${pageBreak.pageNumber-1}</a>
+                            </c:if>
+
+                            <c:if test="${pageBreak.getTotalPage()!=pageBreak.pageNumber}">
+                                <a class="page-number"
+                                    href="blog/index.jsp?page=${pageBreak.pageNumber}">${pageBreak.pageNumber}</a>
+                            </c:if>
+
+                            <c:if test="${pageBreak.getTotalPage()>pageBreak.pageNumber+1}">
+                                <a class="page-number"
+                                    href="blog/index.jsp?page=${pageBreak.pageNumber+1}">${pageBreak.pageNumber+1}</a>
+                            </c:if>
+
+                        </c:if>
+
+                        <c:if
+                            test="${pageBreak.getTotalPage()>3&&pageBreak.pageNumber!=pageBreak.getTotalPage()&&pageBreak.pageNumber+3<pageBreak.getTotalPage()}">
+                            <a class="space">&hellip;</a>
+                        </c:if>
+
+                        <c:if test="${pageBreak.getTotalPage()>3}">
+                            <a class="page-number"
+                                href="blog/index.jsp?page=${pageBreak.getTotalPage()}">${pageBreak.getTotalPage()}</a>
+                        </c:if>
+                        <a class="extend next" id="nextBlogPage" rel="next"
+                            href="blog/index.jsp?page=${pageBreak.pageNumber+1}"> <i class="fa fa-fw fa-chevron-right"
+                                aria-hidden="true"></i>
+                        </a>
+
+                        <div class="pageJump">
+                            <span>跳转到</span> <input type="text" id="goToPage" name="goToPage" value="" /> <span>页</span>
+                            <button type="button" class="button" onclick="goToPage()">确定</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- 引入侧栏 -->
+            <jsp:include page="right.jsp" />
+        </main>
+        <!-- 引入底部 -->
+        <jsp:include page="footer.jsp" />
+    </div>
+    <section id="rightside">
+        <div id="rightside-config-hide">
+            <button id="darkmode" type="button" title="浅色和深色模式转换">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
+        <div id="rightside-config-show">
+            <button id="rightside_config" type="button" title="设置">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button id="go-up" type="button" title="回到顶部">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </section>
+    <div>
+        <script src="blog/js/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+        <script src="blog/js/utils.js"></script>
+        <script src="blog/js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script>
+    </div>
+    <script>
+
+        //跳转到指定页
+        function goToPage() {
+
+            var pageNum = $("#goToPage").val();
+
+            pageNum = parseInt(pageNum);
+
+            window.location.href = "blog/index.jsp?page=" + pageNum;
+        }
+        //打字机特效
+        var subtitleEffect = true;
+        if (subtitleEffect) {
+            var typed = new Typed("#subtitle", {
+                strings: '${requestScope.site.description}'.split(","),
+                startDelay: 300,
+                typeSpeed: 150,
+                loop: false,
+                backSpeed: 50
+            })
+        } else {
+            document.getElementById("subtitle").innerHTML = '${requestScope.site.description}'
+        }
+
+
+
+        $(function () {
+
+            //得到=后的页码  分页
+            var sub = (window.location + "").split("=");
+
+            if (sub[1] != "1") {
+                $("#FirstPage").removeClass("current");
+            }
+
+            if (sub[1] == undefined) {
+                $("#FirstPage").addClass("current");
+            }
+            //为改页码加入样式
+            $(".pagination a").each(function () {
+                if ($(this).html() == sub[1]) {
+                    $(this).addClass("current");
+                }
+            })
+
+            if (sub[1] == "1" || sub[1] == undefined) {
+                $("#prevBlogPage").css("display", "none");
+            }
+
+            if (sub[1] == "${pageBreak.getTotalPage()}") {
+                $("#nextBlogPage").css("display", "none");
+            }
+
+
+            $(".pagination a").each(function () {
+                if (parseInt($(this).html()) > parseInt("${pageBreak.getTotalPage()}")) {
+                    $(this).css("display", "none");
+                }
+            })
+
+
+            $("ul.pagination li.disabled a").click(function () {
+                return false;
+            });
+            //分页
+
+            $(".post_cover:odd").removeClass("left_radius");
+            $(".post_cover:odd").addClass("right_radius");
+            $(".post_cover:even").addClass("left_radius"); //偶数
+
+            //             $(".full_page").css("background-image", "url(" + "${requestScope.HeaderPhoto.indexPhoto}" + ")");
+
+
+            // 除去HTML标签方法
+            ; (function ($) {
+                $.fn.stripHtmlTag = function () {
+                    // 使用正则进行匹配
+                    var regexp = /<("[^"]*"|'[^']*'|[^'">])*>/gi;
+                    this.each(function () {
+                        $(this).html($(this).html().replace(regexp, ''));
+                    });
+                    return $(this);
+                }
+            })(jQuery);
+
+            //对部分内容进行替换
+            $(".content").each(function () {
+                $(this).text($(this).stripHtmlTag().html().substring(0, 1000));
+            })
+
+        })
+    </script>
+</body>
+
+</html>

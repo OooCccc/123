@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钟表</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        html{
+            perspective: 800px;
+            background-image: linear-gradient( gray,black);
+        }
+        body{
+            width: 100%;
+            height: 800px;
+        }
+        .clock {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 5px solid rgb(31, 26, 26);
+            background-color: rgb(38, 60, 75);
+            border-radius: 50%;
+            margin: 100px auto;
+        }
+
+        .hour-wrap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 160px;
+            height: 160px;
+            animation: run 720s linear infinite ;
+            /* background-color: brown; */
+        }
+
+        .hour {
+            margin: 0 auto;
+            width: 5px;
+            height: 80px;
+            background-color: black;
+        }
+
+        .mini-wrap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 190px;
+            height: 190px;
+            animation: run 60s steps(60) infinite ;
+            transform: rotateZ(-60deg);
+            /* background-color: brown; */
+        }
+
+        .mini {
+            margin: 0 auto;
+            width: 3px;
+            height: 95px;
+            background-color: black;
+        }
+
+        .sec-wrap{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 220px;
+            height: 220px;
+            animation: run 10s steps(60) infinite ;
+                /* animation-play-state: paused; */
+
+            /* background-color: brown; */
+        }
+        .sec{
+            margin: 0 auto;
+            width: 2px;
+            height: 110px;
+            background-color: red;
+        }
+
+        @keyframes run{
+            from{
+                transform:rotateZ(0deg);
+            }
+            to{
+                transform:rotateZ(360deg);
+                }
+        }
+        .zhizheng1{
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .zhizheng2{
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .zhizheng3{
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transform:rotateZ(90deg) translateY(-43%) ;
+        }
+        .zhizheng4{
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            right: 0;
+            transform:rotateZ(90deg) translateY(43%) ;
+        }
+        .zhizheng5{
+            top: 0;
+            left: 75%;
+            transform:rotateZ(30deg) translateY(50%) ;
+        }
+        .zhizheng6{
+            top: 20%;
+            right: 0;
+            transform-origin: top;
+            transform: rotateZ(56deg) translateY(20px);
+        }
+        .zhizheng7{
+            top: 0px;
+            left: 25%;
+            transform:rotateZ(-30deg) translateY(50%) ;
+        }
+        .zhizheng8{
+            bottom: 0px;
+            left: 25%;
+            transform:rotateZ(30deg) translateY(-50%) ;
+        }
+        .zhizheng9{
+            top: 20%;
+            transform-origin: top;
+            transform: rotateZ(-56deg) translateY(20px);
+        }
+        .zhizheng10{
+            top: 75%;
+            transform-origin: top;
+            transform: rotateZ(-112deg) translateY(15px);
+        }
+        .zhizheng11{
+            right: 0px;
+            top: 75%;
+            transform-origin: top;
+            transform: rotateZ(112deg) translateY(15px);
+        }
+        .zhizheng12{
+            bottom: 0px;
+            left: 75%;
+            transform:rotateZ(-30deg) translateY(-50%) ;
+        }
+        .dj{
+            position: absolute;
+            width: 5px;
+            height: 40px;
+            background-color: black;
+          
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <!-- 指针 -->
+        <div class="zhizheng1 dj"></div>
+        <div class="zhizheng2 dj"></div>
+        <div class="zhizheng3 dj"></div>
+        <div class="zhizheng4 dj"></div>
+        <div class="zhizheng5 dj"></div>
+        <div class="zhizheng6 dj"></div>
+
+        <div class="zhizheng7 dj"></div>
+        <div class="zhizheng8 dj"></div>
+        <div class="zhizheng9 dj"></div>
+        <div class="zhizheng10 dj"></div>
+        <div class="zhizheng11 dj"></div>
+        <div class="zhizheng12 dj"></div>
+        <!-- 时针 -->
+        <div class="hour-wrap">
+            <div class="hour"></div>
+        </div>
+        <!-- 分针 -->
+        <div class="mini-wrap">
+            <div class="mini"></div>
+        </div>
+        <!-- 秒针 -->
+        <div class="sec-wrap">
+            <div class="sec"></div>
+        </div>
+    </div>
+</body>
+
+</html>

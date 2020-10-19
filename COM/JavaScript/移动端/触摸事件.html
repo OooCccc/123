@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>触摸事件</title>
+    <style>
+        html{
+            overflow: auto;
+        }
+        body{
+            width: 2000px;
+            background-color: blue;
+        }
+        .box{
+            position: absolute;
+            width: 100px;height: 100px;
+            background-color: brown;
+        }
+        .box1{
+            width: 100px;height: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <script>
+        window.onload=function(){
+           var box=document.querySelector('.box');
+           //注册触摸事件
+           var x=0;
+           var y=0;
+           box.addEventListener("touchstart",function(e){
+               var event= e.targetTouches[0];
+                x=event.clientX- box.offsetLeft;
+                y=event.clientY-box.offsetTop;
+           });
+           box.addEventListener("touchmove",function(e){
+            var event= e.targetTouches[0];
+               var newX=event.clientX - x;
+               var newY=event.clientY - y;
+            box.style.left=newX+'px';
+            box.style.top=newY+'px';
+            e.preventDefault();
+           });
+        }
+    </script>
+</body>
+</html>

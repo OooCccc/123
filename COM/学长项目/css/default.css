@@ -1,0 +1,160 @@
+body {
+    font-family: 'Source Sans Pro', 'Trebuchet MS', Arial;
+    font-size: 14px;
+    color: #2c2c2c;
+   -webkit-tap-highlight-color: transparent;
+   width: 100%;
+   max-width: 640px;
+   min-width: 320px;
+   margin:0 auto;
+   height: 100vh;
+   overflow: auto;
+}
+.back-bar{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background-color: #C280FF;
+}
+.back-bar a{
+    display: block;
+    height: 45px;
+    width: 45px;
+}
+.back-bar a img {
+    width: 45px;
+    height: auto;
+}
+
+.st_tree{
+    position: absolute;
+    background-color: #F2F2F2;
+    left: -211px;
+    display: none;
+    width: auto;
+    height: 70vh;
+    z-index: 999999;
+}
+.tree_show{
+    display: block;
+    
+}
+.st_tree-wrap{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    /* background-color: azure; */
+}
+.st_tree a{
+    width: auto;
+    height: auto;
+}
+.menu-bar {
+    position: relative;
+    height: 45px;
+    align-items: center;
+}
+.menu-bar span {
+    position: absolute;
+    display: block;
+    width: 70%;
+    height: 1px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: white;
+    transform-origin: left;
+    transition: all 0.2s;
+  }
+  .menu-bar span:nth-child(1){
+    top: -20px;
+    
+  }
+  .menu-bar span:nth-child(3){
+    top: 20px;
+    
+  }
+  /* .menu-bar span:nth-child(2){
+    opacity: 1;
+  } */
+
+  /* 三条横线的状态 */
+  .first_span{
+    transform: rotateZ(40deg);
+  }
+  .sec_span{
+    opacity: 0;
+  }
+  .last_span{
+    transform: rotateZ(-40deg);
+  }
+ 
+    /* 三级菜单 */
+    .st_tree{
+        padding:10px;
+    }
+    .st_tree a{
+        text-decoration:none;
+    }
+    .st_tree ul{
+        overflow: hidden;
+        padding:0 18px;
+        margin:0;
+        width: 200px;
+         /* 鼠标形状 */
+         cursor:pointer;
+    }
+    .st_tree ul li{
+        font-size:13px;
+        color:#222;
+        line-height:18px;
+        /* 鼠标形状 */
+        /* cursor:pointer; */
+        list-style:none;
+        background:url(../img/images/三级菜单/folder_closed_blue.svg);
+        background-repeat:no-repeat;
+        padding:0 0 3px 20px;
+    }
+    .st_tree .folder{
+        background-image:url(../img/images/三级菜单/folder_closed_blue.svg);
+        list-style-image:url(../img/images/三级菜单/closed_item.svg);
+        background-repeat:no-repeat;
+        padding:0 0 0 20px;
+    }
+    .st_tree .open{
+        list-style-image:url(../img/images/三级菜单/open_item.svg);
+        object-fit: cover;
+        background:url(../img/images/三级菜单/folder_closed_blue.svg);
+        background-repeat:no-repeat;
+        padding:0 0 0 20px;
+    }
+  
+a{
+    text-decoration: none;
+    color: black;
+}
+li{
+    list-style: none;
+}
+input{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    width: 50%;
+    height: 20px;
+    border: 1px solid black;
+}
+select{
+    width: 60%;
+    outline: none;
+    height: 24px;
+    border: 1px solid black;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}

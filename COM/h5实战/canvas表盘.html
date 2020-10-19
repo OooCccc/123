@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas表盘</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #canvas {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            background-color: cornflowerblue;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 获取画布元素
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById('canvas');
+            //设置上下文环境
+            if (canvas.getContext) {
+                var mycans = canvas.getContext('2d');
+            }
+            //定时器
+            setInterval(function(){
+                //清除画布
+                mycans.clearRect(0,0,canvas.width,canvas.height);
+                move();
+            },1000);
+            move();
+            function move(){
+            //外表盘
+            mycans.save();
+            mycans.translate(200, 200);
+            mycans.lineWidth = 5;
+            mycans.beginPath();
+            mycans.arc(0, 0, 150, 0, 2 * Math.PI);
+            mycans.stroke();
+            mycans.restore();
+
+            //刻度(时)
+            for (var i = 0; i < 12; i++) {
+                mycans.save();
+                mycans.strokeStyle='red'
+                mycans.translate(200, 200);
+                mycans.lineWidth = 5;
+                mycans.lineCap='round';
+
+                //旋转30°
+                mycans.rotate(i*30*Math.PI/180);
+                mycans.beginPath();
+                mycans.moveTo(0, -140);
+                mycans.lineTo(0, -120);
+                mycans.stroke();
+                mycans.restore();
+            }
+            //刻度(分)
+            for (var i = 0; i < 60; i++) {
+                if(i%5==0){
+                    continue;
+                }
+                mycans.save();
+                mycans.translate(200, 200);
+                mycans.lineWidth = 3;
+                mycans.lineCap='round';
+                //旋转6°
+                mycans.rotate(i*6*Math.PI/180);
+                mycans.beginPath();
+                mycans.moveTo(0, -140);
+                mycans.lineTo(0, -130);
+                mycans.stroke();
+                mycans.restore();
+            }
+           
+
+            //定义时间对象
+            var date=new Date();
+            var s=date.getSeconds();
+            var m=date.getMinutes();
+            var h=date.getHours();
+            //12小时制
+            h= h>12?h-12:h;
+            //时针
+            mycans.save();
+            mycans.translate(200, 200);
+            mycans.lineWidth=6;
+            mycans.rotate(h*30*Math.PI/180);
+            mycans.beginPath();
+            mycans.moveTo(0,20);
+            mycans.lineTo(0,-60);
+            mycans.stroke();
+            mycans.restore();
+            //分针
+            mycans.save();
+            mycans.translate(200, 200);
+            mycans.lineWidth=6;
+            mycans.strokeStyle='green'
+            mycans.rotate(m*6*Math.PI/180);
+            mycans.beginPath();
+            mycans.moveTo(0,20);
+            mycans.lineTo(0,-100);
+            mycans.stroke();
+            mycans.restore();
+            //秒针
+            mycans.save();
+            mycans.translate(200, 200);
+            mycans.lineWidth=6;
+            mycans.strokeStyle='yellow'
+            mycans.rotate(s*6*Math.PI/180);
+            mycans.beginPath();
+            mycans.moveTo(0,40);
+            mycans.lineTo(0,-100);
+            mycans.stroke();
+            //秒针的圆形头
+            mycans.beginPath();
+            mycans.arc(0,-110,10,0, 2 * Math.PI);
+            mycans.stroke();
+            mycans.restore();
+             //中心
+             mycans.save();
+            mycans.translate(200, 200);
+            mycans.fillStyle='yellow';
+            mycans.beginPath();
+            mycans.arc(0, 0, 7, 0, 2 * Math.PI);
+            // mycans.stroke();
+            mycans.fill();
+            mycans.restore();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="400px" height="400px">
+        <span>
+            你的浏览器不支持画布元素，请更换浏览器，谢谢！
+        </span>
+    </canvas>
+
+</body>
+
+</html>

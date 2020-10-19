@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重复发送问题</title>
+</head>
+<body>
+    <button id="btn">发送</button>
+    <div id="box" style="width:200px;height: 100px; border: 1px solid
+     black;"></div>
+    <script>
+        let btn = document.getElementById("btn");
+        let xhr=null;
+        //节流阀
+        let isSending=false; //是否正在发送AJAX请求
+        btn.addEventListener("click", () => {
+            if(isSending) xhr.abort();
+            //1.创建对象
+            xhr = new XMLHttpRequest();
+            //修改变量标识
+            isSending=true;//说明正在发送请求；
+            // 2.初始化，设置请求方法和url
+            xhr.open("GET", 'http://127.0.0.1:8000/anomaly');
+            // 3.发送请求
+            xhr.send();
+            // 4.事件绑定，返回事件处理结果
+            xhr.onreadystatechange = function () {
+                //判断
+                if (xhr.readyState === 4) {
+                    isSending=false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

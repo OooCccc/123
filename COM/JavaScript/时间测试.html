@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间测试</title>
+</head>
+
+<body>
+    <script>
+       
+        function go(){
+            var date = new Date();
+             var time = date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日" + date.getHours() + "时" + date.getMinutes() + "分" + date.getSeconds() + "秒";
+            document.getElementById('b1').innerHTML=time;
+     
+        }
+        function f1(){
+            document.getElementById("p1").innerHTML="我是你爸爸！";
+        }
+   
+    </script>
+</body>
+<button id="b1" onclick="setInterval('go()',1000),f1()">今天的日期是</button>
+<hr />
+<p id="p1"></p>
+
+</html>

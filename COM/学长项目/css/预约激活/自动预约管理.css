@@ -1,0 +1,111 @@
+.doing-warp{
+    overflow: hidden;
+}
+.appointment-wrap {
+    width: 100%;
+}
+
+.appointment-wrap ul {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.appointment-wrap ul li a {
+    display: block;
+    color: black;
+}
+
+.appointment-wrap ul li {
+    text-align: center;
+    line-height: 35px;
+    width: 100px;
+    height: 35px;
+    border: 1px solid black;
+    font-size: 13px;
+    color: black;
+}
+
+.appointment-wrap ul li:nth-child(2) {
+    border-left: none;
+    border-right: none;
+}
+
+.g-name span{
+  margin-right: 5px;
+}
+.g-name input{
+  width: 70px;
+}
+/* form {
+  text-align: center;
+} */
+form >div{
+  margin: 20px ;
+}
+.btn-g-name1{
+  outline: none;
+  width: 70px;
+  height: 30px;
+  margin: 0 5px;
+  border: none;
+  background-color: #169BD5;
+  border-radius: 5px;
+  color: white;
+}
+.btn-g-name2{
+  outline: none;
+  height: 30px;
+  background-color: #169BD5;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.appointment-info{
+  margin:20px 10px ;
+  border-top: 1px dashed gray;
+  position: relative;
+}
+.appointment-info-list{
+  margin-top: 10px;
+text-align: center;
+}
+.change{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}
+.change span{
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #169BD5;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+}
+.red{
+  color: red!important;
+}
+.purple{
+  color: purple;
+}
+.purple-bc{
+    background-color: #C280FF;
+}
+
+.edit{
+  position: absolute;
+  width: 70px;
+  height: 40px;
+  background-color:#169BD5 ;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

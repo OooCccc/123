@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数2</title>
+</head>
+<script>
+    // var str="d j 66 6 6";
+    // var a=123;
+    // document.write(isNaN(str)+"<br/>");
+    // document.write(escape(str));
+    
+    function go(){
+        var date=new Date();
+       document.getElementById("p1").innerHTML="今天是："+date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日"+date.getHours()+"时"+date.getMinutes()+"分"+date.getSeconds()+"秒"+"<br/>";
+        }
+        function c(){
+            setInterval("go()",1000);
+        }
+        
+
+</script>
+<body>
+    <button id="b1" onclick="c()">点击时间开始</button>
+    <p id="p1"></p>
+</body>
+</html>

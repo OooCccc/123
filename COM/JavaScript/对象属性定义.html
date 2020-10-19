@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象属性定义</title>
+</head>
+
+<body>
+    <script>
+        function C() {
+            this.objPro = "对象属性";
+            C.prototype.objPro2 = "对象属性2";
+            var privatePro = "私有属性";
+            function c1(){
+               alert(privatePro);
+                };
+          return c1();
+        }
+        C.classPro = "类属性";
+        alert(C.classPro);
+        var v = new C();
+            alert(v.objPro);
+        alert(v.objPro2);
+   
+
+    </script>
+</body>
+
+</html>

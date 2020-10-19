@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组练习</title>
+</head>
+
+<body>
+    <script>
+        //创建一个函数，可以将数组里满18岁的人提取出来，
+        // 封装到一个数组中，并返回
+        function Persion(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+
+        }
+
+        // // //  重写to.String方法
+        Persion.prototype.toString = function () {
+            return "[name=" + this.name + ",aeg=" + this.age + ",sex=" + this.sex + "]";
+        };
+
+        var per = new Persion("dj1", 119, "男");
+        var per2 = new Persion("dj2", 42, "男");
+        var per3 =new Persion("dj3", 3, "男");
+        var per4 = new Persion("dj4", 14, "男");
+
+
+        var arrPer = [per, per2, per3, per4];
+
+        //创建一个函数
+        function getAult(x) {
+            var arr = [];
+            for (var i = 0; i < x.length; i++) {
+                x[i];
+                //  document.write(x[i].age+"<br/>");
+                if (x[i].age >= 18) {
+                    arr.push(x[i]);
+                }
+            }
+            return arr;
+        }
+        result = getAult(arrPer);
+        document.write(result);
+    </script>
+</body>
+
+</html>

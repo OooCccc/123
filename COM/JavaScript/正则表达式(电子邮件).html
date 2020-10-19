@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子邮件</title>
+</head>
+
+<body>
+    <script>
+        //设计一个电子邮件 例如： dj 2739041 @ qq . com
+        // 1. 前两位必须是英文字母（不区分大小写）
+        // 2.[0-9]任意数字
+        // 3.@符号
+        // 4.[qq|163|169]
+        // 5. \.
+        // 6.[com|cn]
+
+        var reg1 = /^[A-z][A-z0-9]{7,10}@(qq.com|163.com|169.com)$/;
+        var str1 = "dj273904188@qq.com";
+        document.write(reg1.test(str1));
+        document.write("<hr/>");
+        // var reg = /^[A-z0-9]{1,}[@qq|@163|@169]\.[com|cn]$/;
+        // document.write(reg.test("dj273904198@qq.com"));
+
+    </script>
+</body>
+
+</html>

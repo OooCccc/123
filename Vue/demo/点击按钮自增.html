@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="num" />
+      <button v-on:click="handleClick">点击自增</button>
+      <p>{{num}}</p>
+    </div>
+  </body>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        num: "",
+      },
+      methods: {
+        handleClick(e) {
+          console.log(e);
+          console.log(this);
+          console.log(app instanceof Vue);
+          this.num++;
+        },
+      },
+    });
+  </script>
+</html>

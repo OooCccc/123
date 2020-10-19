@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStroage本地储存</title>
+</head>
+<body>
+    <input  id="input" type="text">
+    <button id="store">存储数据</button>
+    <button id="query">查询数据</button>
+    <button id="remove">删除数据</button>
+    <button id="clear">删除所有</button>
+</body>
+<script>
+    var input=document.getElementById("input");
+    var store=document.getElementById("store");
+    store.addEventListener('click',function(){
+        var text=input.value;
+            window.sessionStorage.setItem('dj2',text);
+        },false);
+
+    var query=document.getElementById("query");
+    query.addEventListener('click',function(){
+        console.log( window.sessionStorage.getItem("dj"));
+       
+    });
+    var remove=document.getElementById("remove");
+    remove.addEventListener('click',function(){
+        window.sessionStorage.removeItem('dj');
+        },false);
+
+    var clear=document.getElementById("clear");
+    clear.addEventListener('click',function(){
+        window.sessionStorage.clear();
+        },false);
+</script>
+</html>

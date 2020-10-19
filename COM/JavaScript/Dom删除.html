@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom删除</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+
+        #add {
+            border: 2px black solid;
+            text-align: center;
+            padding: 0px;
+            width: 300px;
+            margin: 30px auto;
+        }
+
+        table {
+            text-align: center;
+            margin: 30px auto;
+        }
+    </style>
+    <script>
+        function dela() {
+            //    alert("hello");
+            var tr = this.parentNode.parentNode;
+            var name = tr.getElementsByTagName("td")[0];
+            var flag = confirm("是否删除" + name.innerHTML + "?");
+            if (flag) {
+                tr.parentNode.removeChild(tr);//自己删除自己
+            }
+            return false;//不进行跳转
+        };
+        window.onload = function () {
+            var aSet = document.getElementsByTagName("a");
+
+            for (var i = 0; i < aSet.length; i++) {
+                //注意dela不是dela（）   要赋值对象 不是返回值（dela()是返回值）
+                aSet[i].onclick = dela;
+
+            }
+            //为delte绑定事件(删除)
+            //添加功能
+            var submit = document.getElementById("submit");
+            submit.onclick = function () {
+                // alert("dj");
+                //获取文本的内容
+                //  <tr>
+                //     <td>Tom</td>
+                //     <td>234@q.com</td>
+                //     <td>100</td>
+                //     <td><a href="javascript:;">delte</a></td>
+                // </tr>
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("email").value;
+                var salary = document.getElementById("salary").value;
+                //  alert(name+email+salary);
+                //创建tr td
+                var tr = document.createElement("tr");
+
+                //方法二（优化）
+                tr.innerHTML = ("<td>" + name + "</td>" +
+                    "<td>" + email + "</td>" +
+                    "<td>" + salary + "</td>" +
+                    "<td><a href='javascript:;'>delte</a></td>");
+                var a = tr.getElementsByTagName("a")[0];
+                a.onclick = dela;
+
+
+                //方法一
+                // var tdName = document.createElement("td");
+                // var tdEmail = document.createElement("td");
+                // var tdSalary = document.createElement("td");
+                // var tda = document.createElement("td");
+                // var a = document.createElement("a");
+                // a.href="javascript:;";
+                // //为新添加的信息绑定单机事件函数
+                // a.onclick=dela;
+
+                // var nameTxt = document.createTextNode(name);
+                // var emailTxt = document.createTextNode(email);
+                // var slaryTxt = document.createTextNode(salary);
+                // var aTxt = document.createTextNode("delte");
+
+                // tdName.appendChild(nameTxt);
+                // tdEmail.appendChild(emailTxt);
+                // tdSalary.appendChild(slaryTxt);
+                // a.appendChild(aTxt);
+                // tda.appendChild(a);
+
+
+                // tr.appendChild(tdName);
+                // tr.appendChild(tdEmail);
+                // tr.appendChild(tdSalary);
+                // tr.appendChild(tda);
+                // var table = document.getElementById("emploe");
+                var table = document.getElementsByTagName("tbody")[0];
+                // alert(table);
+                table.appendChild(tr);
+
+            }
+
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <table id="emploe" border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td>Tom</td>
+                <td>234@q.com</td>
+                <td>100</td>
+                <td><a href="javascript:;">delte</a></td>
+            </tr>
+            <tr>
+                <td>Tom2</td>
+                <td>23!q.conm</td>
+                <td>123</td>
+                <td><a href="javascript:;">delte</a></td>
+            </tr>
+            <tr>
+                <td>Tom3</td>
+                <td>dj@qq.com</td>
+                <td>4000</td>
+                <td><a href="javascript:;">delte</a></td>
+            </tr>
+        </table>
+
+        <div id="add">
+            <p>
+                <strong>请输入员工信息：</strong>
+            </p>
+            <span>Name:</span><input type="text" id="name"><br />
+            <span>Email:&nbsp;</span><input type="text" id="email"><br />
+            <span>Salary:</span><input type="text" id="salary"><br />
+            <button id="submit">提交</button>
+        </div>
+    </div>
+</body>
+</html>

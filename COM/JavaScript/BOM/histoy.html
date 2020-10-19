@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+    <script>
+        window.onload=function(){
+            var btn =document.getElementById("btn");
+            btn.onclick=function(){
+                // alert(history.length);
+                //back()  
+                // history.back();
+                // history.forward();
+                history.go(-1);
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <a href="./test-history2.html">test-history2</a>
+</body>
+</html>

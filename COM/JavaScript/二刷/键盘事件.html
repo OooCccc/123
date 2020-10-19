@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <script>
+        window.onload=function(){
+        //     document.onkeydown=function(e){
+        //         e=e||window.e;
+        //         alert(e.keyCode);
+
+        //     };
+            //对小键盘不起作用(方向键不起作用)不要用
+            // document.onkeypress=function(){
+            //     alert(2);
+            // };
+            // document.onkeyup=function(){
+            //     alert(3);
+            // };
+            var int=document.getElementById('in');
+            int.onkeydown=function(e){
+                e=e||window.e;
+                var re=/[0-9]/g;
+                //只能输入数字
+                if( re.test(e.keyCode)){
+                    return false;
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+        <input type="text" id="in">
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品案例</title>
+    <style>
+        input {
+            width: 50px;
+        }
+
+        .conotainer {
+            /* width: 600px; */
+            text-align: center;
+            margin: 100px auto;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conotainer">
+        <div class="head">
+            <form action="#">
+                <label>按价格查询:</label><input class="price1" type="text"> - <input class="price2" type="text">
+                <input id="search" type="button" value="搜索">
+                <label>按商品名称查询:</label> <input class="shopName" type="text">
+                <input id="query" type="button" value="查询">
+            </form>
+        </div>
+        <div class="table" style="margin-top: 10px;  ">
+            <table border="1" cellspacing="0" style="width:500px; text-align:center ;">
+                <thead>
+                    <th>id</th>
+                    <th>产品名称</th>
+                    <th>价格</th>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>小米</td>
+                        <td>999</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>oppo</td>
+                        <td>3243</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>荣耀</td>
+                        <td>2000</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>华为</td>
+                        <td>1990</td>
+                    </tr>
+                </tbody> -->
+            </table>
+        </div>
+    </div>
+    <script>
+        //将所有数据放在一个数组中
+        var shopList = [{
+            id: 1,
+            name: "小米",
+            price: 999
+        },
+        {
+            id: 2,
+            name: "oppo",
+            price: 3243
+        }, {
+            id: 3,
+            name: "荣耀",
+            price: 2000
+        }, {
+            id: 4,
+            name: "华为",
+            price: 1990
+        }];
+
+        //遍历数组，将数组插入表格
+        var tbody=document.querySelector("tbody");
+        eachAdd(shopList);
+        //搜索功能
+        var search=document.getElementById("search").onclick=function(){
+            //获取文本框的值
+            var p1=document.getElementsByClassName("price1")[0].value;
+            var p2=document.getElementsByClassName("price2")[0].value;
+
+            //判断是否为数字
+             var re=/[0-9]/;
+             if(!(re.test(p1) || re.test(p2))){
+                 return alert("请输入数字，谢谢！")
+             }
+            var newShop= queryPrice(p1,p2);
+            //清空之前的表格
+            tbody.innerHTML='';
+            // 然后遍历新的数组，将数据插入进去
+            eachAdd(newShop);
+        };
+
+        //查询功能
+        var query=document.getElementById("query").onclick=function(){
+            //获取文本框的值
+            var name=document.getElementsByClassName("shopName")[0].value;
+            var newShop= queryName(name);
+              //清空之前的表格
+              tbody.innerHTML='';
+            // 然后遍历新的数组，将数据插入进去
+            eachAdd(newShop);
+
+        };
+
+        //遍历数组，插入数据
+        function eachAdd(obj){
+            obj.forEach(function(value,index){
+            var tr=document.createElement("tr");
+            tr.innerHTML='<td>'+(index+1)+'</td>'+
+                        '<td>'+obj[index].name+'</td>'+
+                        '<td>'+obj[index].price+'</td>';
+            tbody.appendChild(tr);
+        })
+        }
+        //按价格查询
+        function queryPrice(min, max) {
+            //过滤
+            return shopList.filter(function (value, index) {
+                return shopList[index].price >= min && value.price <= max;
+            })
+        }
+
+        //按商品名称查询
+            function queryName(name){
+                return shopList.filter(function(value,index){
+                    return shopList[index].name==name;
+                })
+            }
+            
+    </script>
+</body>
+
+</html>

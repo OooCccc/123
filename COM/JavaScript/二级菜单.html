@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二级菜单</title>
+    <script src="./tools/tools.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        .menu {
+            padding: 10px 0;
+            border-radius: 25px;
+            width: 200px;
+            /* height: 400px; */
+            background-color: gray;
+            margin: 50px auto;
+        }
+
+        .menu-list ul {
+            text-align: center;
+            transition: all .6s;
+            height: 83.2px;
+            overflow: hidden;
+        }
+
+        span {
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: teal;
+            border-radius: 10px;
+        }
+
+        .clear {
+            height: 0px !important;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var liArr = document.querySelectorAll("#li");
+            //默认打开第一个
+            var openSpan = liArr[0].nextElementSibling;
+            for (var i = 0; i < li.length; i++) {
+                // liArr[i].num=i;
+                liArr[i].onclick = function () {
+                    // alert(this.num);
+                    var currentSpan = this.nextElementSibling;
+                    classReplace(currentSpan, "clear");
+                    if (openSpan != currentSpan) {
+                        addClass(openSpan, "clear");
+                    }
+                    openSpan = currentSpan;
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+            // //绑定单击相应函数
+            //  blind(li1,ul1);
+            //  blind(li2,ul2);
+            //  blind(li3,ul3);
+            //  blind(li4,ul4);
+
+            // //绑定工厂
+            // function blind(obj1,obj2){
+            //     obj1.onclick=function(){
+            //     classReplace(obj2, "clear");
+            //     for(var i=0:i<){
+
+            //     }
+            //  };
+            // }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="menu">
+        <ul class="menu-list">
+            <li>
+                <span id="li">生活</span>
+                <ul id="ul" class=" ">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </li>
+            <li><span id="li">娱乐</span>
+                <ul id="ul" class=" clear">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </li>
+            <li><span id="li">运动</span>
+                <ul id="ul" class=" clear">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </li>
+            <li><span id="li">学习</span>
+                <ul id="ul" class=" clear">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

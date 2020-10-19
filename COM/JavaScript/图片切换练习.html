@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换练习</title> 
+    <script>
+        window.onload=function(){
+            var count =0;
+            var img=document.getElementsByTagName('img')[0];
+            var time=setInterval(function(){
+                    count++;
+                    count%=5;
+                    if(count==0){
+                        count=1;
+                    }
+                img.src="./img/timg"+count+".jpg";
+            },1000);
+        };
+    </script>
+</head>
+<body>
+    <img src="./img/timg1.jpg"id="img">
+</body>
+</html>

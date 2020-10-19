@@ -1,0 +1,133 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图练习</title>
+    <script src="./tools/tools.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #box {
+            position: relative;
+            width: 400px;
+            height: 320px;
+            background-color: brown;
+            margin: 100px auto;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        #img-list {
+            position: absolute;
+            display: flex;
+            height: 300px;
+            /* transition: all .6s; */
+        }
+
+        #box img {
+            width: 380px;
+            vertical-align: top;
+            margin: 0 10px;
+        }
+
+        #point {
+            height: 20px;
+            display: flex;
+            position: absolute;
+            z-index: 999;
+            bottom: 10px;
+            left: 148px;
+
+        }
+
+        #point a {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: gray;
+            margin: 0 3px;
+        }
+
+        #point a:hover {
+            background-color: black;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var img = document.getElementById("img-list");
+            var imgList = document.getElementsByTagName("img");
+            //获取所有的图片
+            var imgArr = document.getElementsByTagName("img");
+            // 默认选中
+            var index = 0;
+            //获取所有的a
+            var aList = document.getElementsByTagName("a");
+            //定时器
+            var time;
+            aList[index].style.backgroundColor = "black";
+            //点击小点跳转图片 为每一个小点绑定单击相应事件
+            for (var i = 0; i < aList.length; i++) {
+                aList[i].num = i;
+                aList[i].onclick = function () {
+                    // 关闭计时器
+                    clearInterval(time);
+                    index = this.num;
+                    // img.style.left=index*-400+"px";
+                    move(img, 10, index * -400, "left", function () {
+                        // 再次开启动画
+                        autoChange();
+                    });
+                    setA();
+
+                };
+            }
+            // 定义一个方法：
+            //     使点击的小方块变黑，其他的变灰色
+            function setA() {
+                if (index >= imgArr.length - 1) {
+                    index = 0;
+                    img.style.left = 0 + "px";
+                }
+                for (var i = 0; i < aList.length; i++) {
+                    aList[i].style.backgroundColor = '';
+                }
+                aList[index].style.backgroundColor = "black";
+            }
+            // 定义一个函数 用来自动切换图片
+            function autoChange() {
+                time = setInterval(function () {
+                    index++;
+                    index %= imgArr.length;
+                    move(img, 10, index * -400, "left", function () {
+                        setA();
+                    });
+                }, 2000);
+            }
+            autoChange();
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <div id="img-list">
+            <img src="../JavaScript/img/timg1.jpg">
+            <img src="../JavaScript/img/timg2.jpg">
+            <img src="../JavaScript/img/timg3.jpg">
+            <img src="../JavaScript/img/timg4.jpg">
+            <img src="../JavaScript/img/timg1.jpg">
+        </div>
+        <div id="point">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+</body>

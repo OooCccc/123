@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: auto;
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+.seach-bar{
+    display: flex;
+    width: 100%;
+    height: 44px;
+    background-color: aquamarine;
+}
+.input{
+    width: 100%;
+    height: auto;
+    background-color: brown;
+    padding: 0 10px;
+    line-height: 36px;
+}
+.input span{
+    display: block;
+}
+input{
+    width: 100%;
+    height: 28px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+.user{
+    width: 51px;
+    background-image: url(./img/home-common-sprite2x@v7.15.png);
+}

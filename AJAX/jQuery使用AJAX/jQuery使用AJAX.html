@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX(jQuery)</title>
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="./lib/bootstrap-3.3.7/js/jquery3.5.1jquery.js"></script>
+    <script src="./lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>AJAX(jQuery)的方法</h1>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-success">GET</button>
+
+            <button type="button" class="btn btn-danger">POST</button>
+
+            <button type="button" class="btn btn-primary">AJAX通用方法</button>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="row col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <textarea name="" id="input" class="form-control" rows="3" required="required"></textarea>
+            </div>
+        </div>
+    </div>
+    <script>
+        //获取按钮和文本框
+        let text = $("#input");
+        //GET
+        $("button").eq(0).click(function () {
+            $.get("http://127.0.0.1:8000/server-ajax?t=" + Date.now(), {
+                a: 100,
+                b: 200
+            }, (date) => {
+                text.html(date.name + date.age);
+            }, "json");
+        })
+        //POST
+        $("button").eq(1).click(function () {
+            $.post("http://127.0.0.1:8000/server-ajax", {
+                a: 100,
+                b: 200
+            }, (date) => {
+                text.html(date);
+            });
+        })
+        //AJAX
+        $("button").eq(2).click(function () {
+            $.ajax({
+                type: "GET",
+                url: `http://127.0.0.1:8000/server-ajax?t=` + Date.now(),
+                data: `name=dj&age=18`,
+                dataType: `json`,
+                async: `false`,
+                success: (data) => {
+                    text.html(data.name + data.age);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类的练习二</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        ul {
+            width: 450px;
+            height: auto;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            width: 90px;
+            height: 35px;
+            background-color: lightcyan;
+            text-align: center;
+            line-height: 35px;
+        }
+
+
+        .box {
+            position: relative;
+            clear: both;
+            width: 450px;
+            height: 200px;
+            background-color: tomato;
+        }
+
+        .box div {
+            position: absolute;
+            width: 450px;
+            height: 200px;
+            display: none;
+        }
+
+        .bc {
+            background-color: tomato;
+        }
+
+        .box div:nth-child(1) {
+            display: block;
+        }
+    </style>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("li").click(function () {
+                var index = $(this).index();
+                $(this).addClass("bc").siblings().removeClass("bc");
+                $(".box >div").eq(index).show().siblings().hide();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li class="bc">娱乐</li>
+        <li>购物</li>
+        <li>运动</li>
+        <li>兴趣</li>
+        <li>生活</li>
+    </ul>
+    <div class="box">
+        <div>娱乐娱乐娱乐娱乐娱乐娱乐娱乐</div>
+        <div>购物购物购物购物购物购物购物</div>
+        <div>运动运动运动运动运动运动运动</div>
+        <div>兴趣兴趣兴趣兴趣兴趣兴趣兴趣</div>
+        <div>生活生活生活生活生活生活生活</div>
+    </div>
+</body>
+
+</html>

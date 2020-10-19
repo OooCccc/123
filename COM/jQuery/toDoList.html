@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>待办事项</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        background: #cdcdcd;
+      }
+
+      header {
+        height: 50px;
+        background: #333;
+        background: rgba(47, 47, 47, 0.98);
+      }
+
+      section {
+        margin: 0 auto;
+      }
+
+      label {
+        float: left;
+        width: 123px;
+        line-height: 50px;
+        color: #ddd;
+        font-size: 24px;
+        cursor: pointer;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      header input {
+        float: right;
+        width: 60%;
+        height: 24px;
+        margin-top: 12px;
+        text-indent: 10px;
+        border-radius: 5px;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24),
+          0 1px 6px rgba(0, 0, 0, 0.45) inset;
+        border: none;
+      }
+
+      input:focus {
+        outline-width: 0;
+      }
+
+      h2 {
+        position: relative;
+      }
+
+      span {
+        position: absolute;
+        top: 2px;
+        right: 5px;
+        display: inline-block;
+        padding: 0 5px;
+        height: 20px;
+        border-radius: 20px;
+        background: #e6e6fa;
+        line-height: 22px;
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+      }
+
+      ol,
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      li input {
+        position: absolute;
+        top: 2px;
+        left: 10px;
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      li p input {
+        top: 3px;
+        left: 40px;
+        width: 70%;
+        height: 20px;
+        line-height: 14px;
+        text-indent: 5px;
+        font-size: 14px;
+      }
+
+      li {
+        height: 32px;
+        line-height: 32px;
+        background: #fff;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 45px;
+        border-radius: 3px;
+        border-left: 5px solid #629a9c;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+      }
+
+      ol li {
+        cursor: move;
+      }
+
+      ul li {
+        border-left: 5px solid #999;
+        opacity: 0.5;
+      }
+
+      li a {
+        position: absolute;
+        top: 2px;
+        right: 5px;
+        display: inline-block;
+        width: 14px;
+        height: 12px;
+        border-radius: 14px;
+        border: 6px double #fff;
+        background: #ccc;
+        line-height: 14px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      footer {
+        color: #666;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      footer a {
+        color: #666;
+        text-decoration: none;
+        color: #999;
+      }
+
+      @media screen and (max-device-width: 620px) {
+        section {
+          width: 96%;
+          padding: 0 2%;
+        }
+      }
+
+      @media screen and (min-width: 620px) {
+        section {
+          width: 600px;
+          padding: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <section>
+        <label for="title">toDoList</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="添加任务"
+          required="required"
+          autocomplete="off"
+        />
+      </section>
+    </header>
+    <section>
+      <h2>正在进行 <span id="todocount"></span></h2>
+      <ol id="todolist" class="demo-box">
+        <!-- <input type="checkbox" name="" id="">
+            <p></p>
+            <a href=""></a> -->
+      </ol>
+      <h2>已经完成 <span id="donecount"></span></h2>
+      <ul id="donelist"></ul>
+    </section>
+    <footer></footer>
+    <script src="./jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <script>
+      $(function () {
+        //加载页面
+        load();
+        //绑定键盘事件
+        $("#title").on("keydown", function (e) {
+          if (e.keyCode === 13) {
+            if ($(this).val() === "") {
+              alert("请输入内容!");
+              return;
+            } else {
+              var local = getDate();
+              //把数据追加到数组中，然后在添加到本地存储中
+              local.unshift({ title: $(this).val(), done: false });
+              saveDate(local);
+              //把任务添加到正在进行列表中
+              load();
+              //清空标题栏
+              $(this).val("");
+            }
+          }
+        });
+        //圆点删除时间绑定(要进行事件委托)
+        $("ol,ul").on("click", "a", function () {
+          var date = getDate();
+          //获取索引
+          var index = $(this).attr("tip");
+          date.splice(index, 1);
+          saveDate(date);
+          load();
+        });
+        //复选框点击事件
+        $("ol,ul").on("click", "input", function () {
+          var date = getDate();
+          var index = $(this).siblings("a").attr("tip");
+          date[index].done = $(this).prop("checked");
+          saveDate(date);
+          load();
+        });
+        //读取本地数据函数
+        function getDate() {
+          var date = localStorage.getItem("todolist");
+          if (date !== null) {
+            return JSON.parse(date);
+          } else {
+            return [];
+          }
+        }
+        //存储本地数据函数
+        function saveDate(obj) {
+          localStorage.setItem("todolist", JSON.stringify(obj));
+        }
+        //加载数据
+        function load() {
+          var date = getDate();
+          $("#todolist,#donelist").empty();
+          $(date).each(function (index, ele) {
+            if (!this.done) {
+              $("#todolist").append(
+                '<li> <input type="checkbox" name="" id=""> <p>' +
+                  ele.title +
+                  '</p> <a href="#" tip=' +
+                  index +
+                  "></a></li>"
+              );
+            } else {
+              $("#donelist").append(
+                '<li> <input type="checkbox"  checked="checked" name="" id=""><p>' +
+                  ele.title +
+                  '</p> <a href="#" tip=' +
+                  index +
+                  "></a></li>"
+              );
+            }
+          });
+          //获取正在进行任务数量todocount
+          $("#todocount").html($("ol li").length);
+          $("#donecount").html($("ul li").length);
+        }
+      });
+    </script>
+  </body>
+</html>

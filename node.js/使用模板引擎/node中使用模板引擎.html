@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node中使用模板引擎</title>
+</head>
+<body>
+    <script src="./node_modules/art-template/lib/template-web.js"></script>
+    <script type="type/template" id="tpl">
+    我的名字叫做{{name}}
+    我住在{{adress}}
+    我今年{{age}}岁了
+    我喜欢 {{each hobbies }}  {{ $value}}  {{/each}}
+    </script>
+
+    <script>
+        const people=template("tpl",{
+                name:'大爷',
+                adress:'北校区',
+                age:12,
+                hobbies:['篮球','足球','排球']
+        });
+        console.log(people);
+        
+    </script>
+</body>
+</html>

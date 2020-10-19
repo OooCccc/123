@@ -1,0 +1,38 @@
+.guke-info{
+    height: 500px;
+    overflow: auto;
+}
+table{
+    width: 100%;
+    text-align: center;
+    margin: 0 10px;
+}
+table tr{
+    height: 30px;
+}
+.selectAll{
+    color: #0000FF;
+}
+.eidt-info{
+    text-align: center;
+    margin: 10px 0;
+}
+.type{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.btns{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.btns button{
+    border: none;
+    width: 100px;
+    background-color: rgba(22, 155, 213, 1);
+    border-radius: 5px;
+    color: white;
+}
+textarea{
+    width: 90%;
+}

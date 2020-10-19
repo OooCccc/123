@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象方法定义</title>
+</head>
+<body>
+    <script>
+        function C(){
+            this.objFun=function (){
+                alert("对象方法1");
+            }
+            C.prototype.objFun2=function (){
+                alert("对象方法2");
+            }
+            var privateFun=function (){
+                alert("私有方法");
+            }
+            privateFun();
+        }
+        C.classFun=function (){
+            alert("类方法");
+        }
+        C.classFun();
+        var c=new C();
+        c.objFun();
+        c.objFun2();
+    </script>
+</body>
+</html>

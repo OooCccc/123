@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                height: 1000px;
+            }
+            #box{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background-color: tomato;
+            }
+        </style>
+        <script>
+            window.onload=function(){
+                var box=document.getElementById('box');
+                box.onmousedown=function(e){
+                    e=e||window.e;
+                    var left=e.clientX-box.offsetLeft;
+                    var top=e.clientY-box.offsetTop;
+                    document.onmousemove=function(e){
+                        e=e||window.e;
+                        var newx=e.clientX -left;
+                        var newy=e.clientY-top;
+                        box.style.left=newx+'px';
+                        box.style.top=newy+'px'
+                    };
+                            document.onmouseup=function(){
+                                document.onmousemove=null;
+                                document.onmouseup=null;
+                    };
+                    return false;
+                };
+            };
+        </script>
+</head>
+<body>
+        <div class="" id="box">
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sed dolorem velit sequi cumque, provident maxime minima nesciunt enim vero aperiam doloremque nihil. Minima nobis et illum soluta officiis itaque.</p>
+</body>
+</html>

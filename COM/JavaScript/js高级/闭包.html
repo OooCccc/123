@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+</body>
+    <script>
+        var btns=document.getElementsByTagName("button");
+        // for(var i=0;i<btns.length;i++){
+        //         btns[i].num=i;
+        //         btns[i].onclick=function(){
+        //             alert(this.num+1);
+        //         }
+        // }
+        
+        for ( var i = 0 ; i < btns.length ; i++){
+               (function(i){
+               btns[i].onclick=function(){
+                   setTimeout(function(){
+                   console.log(btns[i].innerHTML);
+                   },1000)
+               }
+               })(i)
+        }
+    </script>
+
+</html>

@@ -1,0 +1,16 @@
+.info-rank{
+    padding: 0 20px;
+}
+.table-rank{
+    margin: 0 auto;
+}
+.table-rank{
+    text-align: center;
+    width: 80%;
+}
+.table-rank th{
+    color: #8400FF;
+}
+.table-rank tr{
+    height: 50px;
+}

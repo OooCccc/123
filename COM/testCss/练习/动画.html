@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* perspective: 800px; */
+            /* transform-style: preserve-3d; */
+            width: 100%;height: 100%;
+        }
+        .box1 {
+            width: 115px;
+            height: 115px;
+            /* background-color: aquamarine; */
+            margin: 100px auto;
+            background-image: url(./img/sprite-sheet-image.png);
+            animation-name:id;
+            animation-timing-function: steps(4);
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            /* 简写属性
+            animation: id steps(4)  1s infinite;
+            */
+
+        }
+        .box2{
+            width: 60px;
+            height: 69px;
+            margin: 100px auto;
+            background-image: url(./img/下载.png);
+            animation: id2 steps(6) 1s infinite;
+        }
+        .box3{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            margin-top: 200px;
+            margin-left: 100px;
+            /* transform-style: preserve-3d; */
+            /* 向 X Y 的正方向偏移 */
+            /* transform:skewY(45deg); */
+            /* transform:skewX(10deg); */
+            transform: skew(45deg,44deg);
+        }
+        .box4{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: forestgreen;
+            margin-top: 200px;
+            margin-left: 100px;
+            top: 0;
+            left: 0;
+            /* transform-style: preserve-3d; */
+            /* 向 X Y 的正方向偏移 */
+            /* transform:skewY(45deg); */
+            /* transform:skewX(10deg); */
+            transform: skew(-45deg,-44deg);
+        }
+        @keyframes id2 {
+            from{
+                    background-position: 0 0;
+            }
+            to{
+                    background-position: -363px 0 ;
+
+            }
+        }
+        @keyframes id {
+            from {
+                background-position-x: 0px;
+            }
+
+            to {
+                background-position-x: -460px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+    </div>
+    <div class="box2">
+
+        <div class="box3">
+                <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem beatae commodi esse porro consequatur repudiandae dolorum doloremque delectus laboriosam fuga sapiente rem deserunt molestiae, voluptatibus consectetur minus quo, eum ducimus. -->
+            </div>
+                    <div class="box4">
+                <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem beatae commodi esse porro consequatur repudiandae dolorum doloremque delectus laboriosam fuga sapiente rem deserunt molestiae, voluptatibus consectetur minus quo, eum ducimus. -->
+                    </div>
+
+       
+
+    </div>
+</body>
+
+</html>

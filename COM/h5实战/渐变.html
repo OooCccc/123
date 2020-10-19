@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+        }
+        .canvas{
+            position: absolute;
+            background-color: gray;
+            margin:  auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+              /** @type {HTMLCanvasElement} */
+            var canvas=document.getElementById('canvas');
+            if(canvas.getContext){
+                    var mycans=canvas.getContext('2d');
+            }
+                //线性渐变
+                //    var gradient= mycans.createLinearGradient(0,0,400,400);
+                //    gradient.addColorStop(0,'red');
+                //    gradient.addColorStop(.5,'black');
+                //    gradient.addColorStop(1,'blue');
+                //    mycans.fillStyle=gradient;
+                //    mycans.fillRect(0,0,400,400);
+
+                //径向渐变
+                var gradient2=mycans.createRadialGradient(200,200,50,200,200,200);
+                gradient2.addColorStop(0,"red");
+                gradient2.addColorStop(0.5,"yellow");
+                gradient2.addColorStop(1,'black');
+                mycans.fillStyle=gradient2;
+                mycans.fillRect(0,0,400,400);
+        }
+    </script>
+</head>
+<body>
+    <canvas id="canvas" class="canvas" width="400px"
+    height="400px" >
+        你的浏览器不支持画布元素，请更换浏览器！
+    </canvas>
+</body>
+</html>

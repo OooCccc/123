@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  overflow: hidden;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  perspective: 100px;
+  transform-style: preserve-3d;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform-style: inherit;
+}
+main section:nth-child(1) .img {
+  background-image: url("../img/dogwalk-2899097.jpg");
+}
+main section:nth-child(2) .img {
+  background-image: url("../img/affection-benches-black-and-white-boardwalk-220836.jpg");
+}
+main section:nth-child(3) .img {
+  background-image: url("../img/books-business-computer-connection-459654.jpg");
+}
+main section:nth-child(4) .img {
+  background-image: url("../img/golden-cup-and-basket-with-books-6332.jpg");
+}
+main section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+main section::after {
+  position: absolute;
+  content: "";
+  display: block;
+  transition: all 0.6s;
+}
+main section:hover::after {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+main section .img {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  transform: translateZ(-50px) scale(2);
+}
+main section .text {
+  position: absolute;
+  color: black;
+}
+main section .text p {
+  font-size: 40px;
+}

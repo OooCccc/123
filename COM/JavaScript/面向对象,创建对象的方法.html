@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建对象的方法</title>
+</head>
+<body>
+    <script>
+        // 方法一
+        var V={
+            name:"dj",
+            age:"22",
+            fuc:function(){
+                   alert(this.name+"今年"+this.age); 
+            },
+            action:function(){
+                alert("喜欢吃！");
+            },
+        }
+        alert(V.age);
+        alert(V.name);
+        V.fuc();
+        V.action();
+        L
+
+
+
+
+        
+
+        //方法二
+        function D(name,age){
+            this.name=name;
+            this.age=age;
+            this.action=function(){
+                alert( "我叫"+this.name+"我今年"+this.age+"我也喜欢吃！");
+            };
+
+        }
+        var d=new D("jacak",18);
+        d.action(); 
+      
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器运用二</title>
+    <script src="./tools/tools.js"></script>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            margin-top: 20px;
+            position: absolute;
+        }
+
+        #box1 {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            position: absolute;
+            top: 200px;
+        }
+
+        .line {
+            width: 1px;
+            height: 1000px;
+            background-color: black;
+            position: absolute;
+            left: 500px;
+            top: 0px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            var btn0 = document.getElementById("btn0");
+            var btn1 = document.getElementById("btn1");
+            var box = document.getElementById("box");
+            var box1 = document.getElementById("box1");
+            
+             // 点我虹色方块向右移动
+            btn.onclick =function(){
+                move(box,10,500,"left",function(){
+                    move(box,10,500,"width",function(){
+                        move(box,10,500,"height",function(){
+                            move(box,10,0,"left");
+                        });
+                    });
+                });
+            };
+            // 点我虹色方块向左移动
+            btn0.onclick =function(){
+                move(box,10,0,"left");
+            };
+            // 点我黄色方块向下移动
+            btn1.onclick = function () {
+                move(box1,10,500,"top");
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <button id="btn">点我虹色方块向右移动</button>
+    <button id="btn0">点我虹色方块向左移动</button>
+    <button id="btn1">点我黄色方块向下移动</button>
+    <div id="box"></div>
+    <div id="box1"></div>
+    <div class="line"></div>
+</body>
+
+</html>

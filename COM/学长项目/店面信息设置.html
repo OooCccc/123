@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店面信息设置</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/店面信息.css">
+    <script src="./lib/jquery3.5.1.js/jquery3.5.1jquery.min.js"></script>
+    <script src="./script/三级菜单.js"></script>
+    <script src="./script/三级菜单点击事件.js"></script>
+       
+</head>
+<body>
+    <div class="set-store-warp">
+        <div class="back-bar">
+            <a href="./index.html">
+                <img src="./img/images/预约进行中列表/u3.svg" >
+            </a>
+            <div class="st_tree-wrap">
+                <div class="menu-bar">
+                    <span></span>
+                    <span class="s2"></span>
+                    <span></span>
+                </div>
+                <div class="st_tree">
+                    <ul>
+                        <li><a href="#">店铺端</a></li>
+                        <ul show="true">
+                            <li><a href="#">预约激活</a></li>
+                            <ul>
+                                <li><a href="./预约进行中列表.html">预约进行中列表</a></li>
+                                <li><a href="./预约历史-已完成.html">预约历史-已完成</a></li>
+                                <li><a href="./自动预约管理.html">自动预约管理</a></li>
+                                <ul>
+                                    <li><a href="./新增、编辑预约管理.html">新增/编辑预约管理</a></li>
+                                </ul>
+                            </ul>
+                            <li><a href="#">客户管理</a></li>
+                            <ul>
+                                <li><a href="./顾客管理.html">顾客管理</a></li>
+                                <ul>
+                                    <li><a href="./积分管理.html">积分管理</a></li>
+                                </ul>
+                                <li><a href="./新增、编辑客户.html">新增/编辑客户</a></li>
+                                <li><a href="./顾客类型.html">客户类型</a></li>
+                            </ul>
+                            <li><a href="#">预约经理管理</a></li>
+                            <ul>
+                                <li><a href="./员工管理.html">员工管理</a></li>
+                                <ul>
+                                    <li><a href="./新增、编辑员工.html">新增/编辑员工</a></li>
+                                    <li><a href="./员工顾客关系管理.html">员工顾客关系管理</a></li>
+                                </ul>
+                            </ul>
+                            <li><a href="#">产品项目管理</a></li>
+                            <ul>
+                                <li><a href="./项目管理.html">产品项目管理</a></li>
+                                <ul>
+                                    <li><a href="./新增、编辑、删除项目.html">新增/删除项目</a></li>
+                                </ul>
+                                <li><a href="./统计.html">统计</a></li>
+
+                            </ul>
+                            <li><a href="#">短信助手</a></li>
+                            <ul>
+                                <li><a href="./信息助手.html">信息助手</a></li>
+                            </ul>
+                            <li><a href="./店面信息设置.html">店面信息设置</a></li>
+                            <li><a href="./index.html">首页</a></li>
+
+                        </ul>
+                        <li><a href="#">服务端</a></li>
+                        <ul>
+                            <li><a href="./登录.html">登录</a></li>
+                            <li><a href="./积分宝典.html">积分宝典</a></li>
+                            <li><a href="./我的积分.html">我的积分</a></li>
+                            <li><a href="./积分排行榜.html">积分排行榜</a></li>
+
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="store-info">
+            <form action="#" method="post">
+                <div class="store">
+                    <span>店铺名称:</span><input type="text" name="store" id="store" >
+                </div>
+               <div class="tell"> 
+                   <span>联系电话:</span><input type="tel" name="tel" id="tel">
+               </div>
+                <div class="adress">
+                    <span>地址:</span><input type="text" name="address" id="address" >
+                    <span class="address-img"><img src="./img/images/店面信息设置/u775.svg" ></span>
+                </div>
+                <div class="score-use">
+                    <span>积分作用:</span>
+                    <textarea name="score-use" id="score-use" cols="30" rows="10" ></textarea>
+                    <p><small>备注:将展现在顾客端,用于客户对积分的认识</small> </p>
+                </div>
+                <div class="score-get">
+                    <span>如何获取积分:</span><textarea name="score-get" id="score-get" cols="30" rows="10" ></textarea>
+                    <p><small>备注:将展现在顾客端,用于客户对积分的认识</small> </p>
+                </div>
+                <button type="submit">保存</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

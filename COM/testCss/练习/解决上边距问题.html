@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解决上边距问题</title>
+    <style>
+        /* 方法一:给父元素开启相对定位，自己开启结对定位
+           方法二：给box1增加一个伪元素::before
+         */
+        #box1{
+            width: 300px;
+            border: 1px solid;
+            background-color: blueviolet;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: crimson;
+            float: left;
+            margin-top: 100px;
+        }
+        /* 解决高度塌陷 */
+             #box1::after{
+            content:'';
+            display: table;
+            clear: both;
+        }
+        /* 解决外边距问题 */
+            #box1::before{
+            content: '';
+            display: table;
+        }  
+
+        /* 既解决高度塌陷又解决外边距问题 */
+        
+        /* .clerafix::before,
+        .clearfix::after{
+            content:'';
+            display: table;
+            clear: both;
+        } */
+        /* #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(180, 20, 220);
+        } */
+    </style>
+</head>
+<body>
+    <div id="box1" class="clearfix">
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </div>
+
+ 
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>解构赋值</title>
+  </head>
+
+  <body>
+    <script>
+      // <!-- 1.数组的解构赋值 -->
+      const F4 = ["赵本山", "小沈阳", "赵四", "宋小宝"];
+      let [a, b, c, d] = F4;
+      console.log(a, b, c, d);
+
+      // <!-- 2.对象的解构赋值 -->
+      const Zhao = {
+        name: "赵本山",
+        age: 100,
+        paly: function () {
+          return console.log("我会唱歌！");
+        },
+      };
+      let { name } = Zhao;
+      console.log(name);
+    </script>
+  </body>
+</html>

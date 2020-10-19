@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重</title>
+    <script>
+        // 定义一个数组
+        var arr=[1,2,3,4,5,6,4,2,2,4,5,2];
+        var arr2=["dj","dh2","dj2","dj4"];
+        //去除数组中的每一个数，然后进行一一比较
+        for(var i=0;i<arr.length;i++){
+            for(var j=i+1;j<arr.length;j++){
+                    if(arr[i]==arr[j]){
+                    arr.splice(j,1);
+                    j--;
+                    }
+            }
+        }
+        var x= arr.concat(arr2);
+        // document.write(x);
+         var c=x.join(".");
+document.write(c);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

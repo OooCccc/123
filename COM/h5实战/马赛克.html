@@ -1,0 +1,43 @@
+<!DcanvasTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马赛克</title>
+    <script src="../JavaScript/tools/tools.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .canvas {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" class="canvas">
+        你的瀏覽器不支持画布元素，请更换浏览器！
+    </canvas>
+    <script>
+        window.onload = function () {
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById('canvas');
+            if (!canvas.getContext) {
+                return;
+            }
+            var ctx = canvas.getContext('2d');
+                makeMosaic('img/cat2.jpg',10,ctx);
+        }
+    </script>
+</body>
+
+</html>

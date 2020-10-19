@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选练习</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        #select {
+            text-align: center;
+            border: 1px solid;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 获取全选/全不选selectAllNotAll
+            var selectAllNotAll = document.getElementById("selectAllNotAll");
+            //获取name=items的元素组
+            var items = document.getElementsByName("items");
+
+            
+            //全选selectAll
+            var selectAll = document.getElementById("selectAll");
+            selectAll.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    // alert(items[i].value);
+                    items[i].checked = true;
+                }
+                selectAllNotAll.checked = true;
+                return false;
+            };
+
+
+            //全不选selectNotAll
+            var selectNotAll = document.getElementById("selectNotAll");
+            selectNotAll.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    // alert(items[i].value);
+                    items[i].checked = false;
+                }
+                selectAllNotAll.checked = false;
+                return false;
+            };
+
+
+            //反选selectUnAll
+            var selectUnAll = document.getElementById("selectUnAll");
+            selectUnAll.onclick = function () {
+                 selectAllNotAll.checked = true;
+                for (var i = 0; i < items.length; i++) {
+                    // alert(items[i].value);
+                    items[i].checked = !items[i].checked;
+                    if (!items[i].checked) {
+                        selectAllNotAll.checked = false;
+                    }
+                }
+                return false;
+            };
+
+        
+            //为selectAllNotAll绑定一个单击事件
+            selectAllNotAll.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = this.checked;
+                }
+            };
+
+
+            //为每一个选项绑定单击事件
+            for (var i = 0; i < items.length; i++) {
+                items[i].onclick = function () {
+                    selectAllNotAll.checked = true;
+                    for (var j = 0; j < items.length; j++) {
+                        if (!items[j].checked) {
+                            selectAllNotAll.checked = false;
+                            berak;
+                        }
+                    }
+                };
+
+            }
+        //提交按钮
+            var submit = document.getElementById("submit");
+            submit.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].checked) {
+                        alert(items[i].value);
+                    }
+                }
+            };
+            
+        };
+
+    </script>
+</head>
+
+<body>
+    <form action="">
+    <div id="select">
+        <span>你喜欢的运动是什么?</span><input id="selectAllNotAll" type="checkbox">全选/全不选
+        <br />
+        <input type="checkbox" name="items" id="items1" value="篮球">篮球
+        <input type="checkbox" name="items" id="items2" value="足球">足球
+        <input type="checkbox" name="items" id="items3" value="排球">排球
+        <input type="checkbox" name="items" id="items4" value="游泳">游泳
+        <br />
+        <button id="selectAll">全选</button>
+        <button id="selectNotAll">全不选</button>
+        <button id="selectUnAll">反选</button>
+        <button id="submit">提交</button>
+    </div>
+</form>
+</body>
+
+</html>

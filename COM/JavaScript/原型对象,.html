@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型对象</title>
+</head>
+<body>
+    <script>
+       
+        function Persion(name , age , sex){
+            this.name=name;
+            this.age=age;
+            this.sex=sex;
+            this.sayName=fun;
+        }
+        //将这个方法添加到原型对象中，防止污染全局
+        Persion.prototype.sayName=function(){
+            alert(this.name);
+        }
+        function Dog(name , age , sex){
+            this.name=name;
+            this.age=age;
+            this.sex=sex;
+            this.sayName=fun;
+        }
+        Dog.prototype.sayName=function(){
+            alert(this.name);
+        }
+        var persion =new Persion("dj",19,"男");
+        var dog=new Dog("汪汪~~",12,"男");
+        
+        persion.sayName();
+        dog.sayName();
+        
+
+
+    </script>
+</body>
+</html>
